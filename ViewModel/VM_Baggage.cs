@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Text;
+
+namespace CourseProject.ViewModel
+{
+    public class VM_Baggage : INotifyPropertyChanged
+    {
+        public ObservableCollection<Context.BaggageContext> Baggages { get; set; }
+
+        public Classes.RelayCommand NewBaggage
+        {
+            get
+            {
+                return new Classes.RelayCommand(obj =>
+                {
+                    Context.BaggageContext newModel = new Context.BaggageContext(true);
+                    Baggages.Add(newModel);
+                    MainWindow.init.frame.Navigate(new View.Add(newModel));
+                });
+            }
+        }
+
+        public VM_Baggage(string Filter) =>
+            Baggages = Context.BaggageContext.AllBaggage(Filter);
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        {
+            if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
+    }
+}
