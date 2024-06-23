@@ -24,8 +24,8 @@ namespace CourseProject.ViewModel
             }
         }
 
-        public VM_Planes(string Filter) =>
-            Planes = Context.PlanesContext.AllPlanes(Filter);
+        public VM_Planes() =>
+            Planes = Context.PlanesContext.AllPlanes();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
