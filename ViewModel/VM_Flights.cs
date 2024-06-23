@@ -7,25 +7,25 @@ using System.Text;
 
 namespace CourseProject.ViewModel
 {
-    public class VM_Baggage : INotifyPropertyChanged
+    public class VM_Flights : INotifyPropertyChanged
     {
-        public ObservableCollection<Context.BaggageContext> Baggages { get; set; }
+        public ObservableCollection<Context.FlightsContext> Flights { get; set; }
 
-        public Classes.RelayCommand NewBaggage
+        public Classes.RelayCommand NewFlights
         {
             get
             {
                 return new Classes.RelayCommand(obj =>
                 {
-                    Context.BaggageContext newModel = new Context.BaggageContext(true);
-                    Baggages.Add(newModel);
-                    MainWindow.init.frame.Navigate(new View.Baggage.Add(newModel));
+                    Context.FlightsContext newModel = new Context.FlightsContext(true);
+                    Flights.Add(newModel);
+                    MainWindow.init.frame.Navigate(new View.Flights.Add(newModel));
                 });
             }
         }
 
-        public VM_Baggage(string Filter) =>
-            Baggages = Context.BaggageContext.AllBaggage(Filter);
+        public VM_Flights(string Filter) =>
+            Flights = Context.FlightsContext.AllFlights(Filter);
 
         public event PropertyChangedEventHandler PropertyChanged;
 

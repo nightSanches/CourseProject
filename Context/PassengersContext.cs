@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Text;
+using System.Linq;
 
 namespace CourseProject.Context
 {
@@ -14,43 +15,49 @@ namespace CourseProject.Context
         public PassengersContext(bool save = false)
         {
             if (save) Save(true);
-            Id_passenger = new Passengers();
+            Id_flight = new Flights();
         }
 
-        public static ObservableCollection<BaggageContext> AllBaggage(string Filter = "")
+        public static ObservableCollection<PassengersContext> AllPassengers(string Filter = "")
         {
-            ObservableCollection<BaggageContext> allBaggage = new ObservableCollection<BaggageContext>();
-            ObservableCollection<PassengersContext> allPassengers = PassengersContext.AllCategorys();
+            ObservableCollection<PassengersContext> allPassengers = new ObservableCollection<PassengersContext>();
+            ObservableCollection<FlightsContext> allFlights = FlightsContext.AllFlights();
             SqlConnection connection;
             if (Filter == "")
             {
-                SqlDataReader dataBaggage = Connection.Query("SELECT * FROM baggage", out connection);
-                while (dataBaggage.Read())
+                SqlDataReader dataPassengers = Connection.Query("SELECT * FROM passengers", out connection);
+                while (dataPassengers.Read())
                 {
-                    allBaggage.Add(new BaggageContext()
+                    allPassengers.Add(new PassengersContext()
                     {
-                        Id_baggage = dataBaggage.GetInt32(0),
-                        Id_passenger = dataBaggage.IsDBNull(1) ? null : allPassengers.Where(x => x.Id_passenger == dataBaggage.GetInt32(1)).First(),
-                        Weight = dataBaggage.GetInt32(2)
+                        Id_passenger = dataPassengers.GetInt32(0),
+                        Surname = dataPassengers.GetString(1),
+                        Name = dataPassengers.GetString(2),
+                        Patronymic = dataPassengers.GetString(3),
+                        Passport = dataPassengers.GetString(4),
+                        Id_flight = dataPassengers.IsDBNull(5) ? null : allFlights.Where(x => x.Id_flight == dataPassengers.GetInt32(5)).First()
                     });
                 }
                 Connection.CloseConnection(connection);
             }
             else
             {
-                SqlDataReader dataBaggage = Connection.Query("SELECT * FROM baggage WHERE Id_passenger LIKE '%" + Filter + "%'", out connection);
-                while (dataBaggage.Read())
+                SqlDataReader dataPassengers = Connection.Query("SELECT * FROM passengers WHERE Name LIKE '%" + Filter + "%' OR Surname LIKE '%" + Filter + "%' OR Patronymic LIKE '%" + Filter + "%'", out connection);
+                while (dataPassengers.Read())
                 {
-                    allBaggage.Add(new BaggageContext()
+                    allPassengers.Add(new PassengersContext()
                     {
-                        Id_baggage = dataBaggage.GetInt32(0),
-                        Id_passenger = dataBaggage.IsDBNull(1) ? null : allPassengers.Where(x => x.Id_passenger == dataBaggage.GetInt32(1)).First(),
-                        Weight = dataBaggage.GetInt32(2)
+                        Id_passenger = dataPassengers.GetInt32(0),
+                        Surname = dataPassengers.GetString(1),
+                        Name = dataPassengers.GetString(2),
+                        Patronymic = dataPassengers.GetString(3),
+                        Passport = dataPassengers.GetString(4),
+                        Id_flight = dataPassengers.IsDBNull(5) ? null : allFlights.Where(x => x.Id_flight == dataPassengers.GetInt32(5)).First()
                     });
                 }
                 Connection.CloseConnection(connection);
             }
-            return allBaggage;
+            return allPassengers;
         }
 
         public void Save(bool New = false)

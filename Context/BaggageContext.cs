@@ -21,7 +21,7 @@ namespace CourseProject.Context
         public static ObservableCollection<BaggageContext> AllBaggage(string Filter = "")
         {
             ObservableCollection<BaggageContext> allBaggage = new ObservableCollection<BaggageContext>();
-            ObservableCollection<PassengersContext> allPassengers = PassengersContext.AllCategorys();
+            ObservableCollection<PassengersContext> allPassengers = PassengersContext.AllPassengers();
             SqlConnection connection;
             if (Filter == "")
             {
