@@ -6,14 +6,20 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Text;
+using Microsoft.Win32;
 
 namespace CourseProject.Context
 {
     public class AirlinesContext : Airlines
     {
+        private bool isNew = false; 
         public AirlinesContext(bool save = false)
         {
-            if (save) Save(true);
+            if (save)
+            {
+                Save(true);
+                isNew = true;
+            }
         }
 
         public static ObservableCollection<AirlinesContext> AllAirlines(string Filter = "")
@@ -76,6 +82,7 @@ namespace CourseProject.Context
                     $"Id_airline = {this.Id_airline}", out connection);
             }
             Connection.CloseConnection(connection);
+            isNew = false;
             MainWindow.init.frame.Navigate(MainWindow.init.AirlinesMain);
         }
 
@@ -118,6 +125,27 @@ namespace CourseProject.Context
                 {
                     Delete();
                     (MainWindow.init.AirlinesMain.DataContext as ViewModel.VM_Airlines).Airlines.Remove(this);
+                });
+            }
+        }
+
+        public RelayCommand OnCancel
+        {
+            get
+            {
+                return new RelayCommand(obj =>
+                {
+                    if (isNew)
+                    {
+                        Delete();
+                        (MainWindow.init.AirlinesMain.DataContext as ViewModel.VM_Airlines).Airlines.Remove(this);
+                        MainWindow.init.frame.Navigate(MainWindow.init.AirlinesMain);
+                    }
+                    else if(!isNew)
+                    {
+                        MainWindow.init.frame.Navigate(MainWindow.init.AirlinesMain);
+                        View.Airlines.Main.init.ReloadPage();
+                    }
                 });
             }
         }

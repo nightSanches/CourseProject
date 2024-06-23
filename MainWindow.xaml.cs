@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseProject.View.Airlines;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,11 +22,21 @@ namespace CourseProject
     public partial class MainWindow : Window
     {
         public static MainWindow init;
-        public View.Baggage.Main BaggageMain;
+        public Main BaggageMain;
+        public Main AirlinesMain;
+        public Main FlightsMain;
+        public Main PassengersMain;
+        public Main PlanesMain;
         public MainWindow()
         {
             InitializeComponent();
             init = this;
+        }
+
+        private void OpenAirlines(object sender, RoutedEventArgs e)
+        {
+            AirlinesMain = new View.Airlines.Main();
+            frame.Navigate(AirlinesMain);
         }
     }
 }

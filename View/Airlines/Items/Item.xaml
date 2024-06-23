@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="CourseProject.View.Airlines.Items.Item"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CourseProject.View.Airlines.Items"
+             mc:Ignorable="d" HorizontalAlignment="Stretch">
+    <Grid Background="White">
+        <Grid.Effect>
+            <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
+        </Grid.Effect>
+        <Button Height="25" Content="Изменить" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,72,0,0" Width="55" FontSize="10" Command="{Binding OnEdit}">
+            <Button.Effect>
+                <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
+            </Button.Effect>
+        </Button>
+        <Button Height="25" Content="Удалить" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,102,0,0" Width="55" FontSize="10" Command="{Binding OnDelete}">
+            <Button.Effect>
+                <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
+            </Button.Effect>
+        </Button>
+        <Grid Margin="65,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Наименование авиакомпании:" VerticalAlignment="Top" Margin="10,10,10,0"/>
+            <TextBox Text="{Binding Airline_name}" Height="26" VerticalAlignment="Top" Margin="10,36,10,0" VerticalContentAlignment="Center" IsEnabled="False"/>
+            <Label Content="Страна:" VerticalAlignment="Top" Margin="10,10,10,0" Grid.Column="1"/>
+            <TextBox Text="{Binding Country}" Height="26" VerticalAlignment="Top" Margin="10,36,10,0" VerticalContentAlignment="Center" IsEnabled="False" Grid.Column="1"/>
+        </Grid>
+    </Grid>
+</UserControl>
