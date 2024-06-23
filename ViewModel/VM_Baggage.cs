@@ -9,7 +9,7 @@ namespace CourseProject.ViewModel
 {
     public class VM_Baggage : INotifyPropertyChanged
     {
-        public ObservableCollection<Context.BaggageContext> Baggages { get; set; }
+        public ObservableCollection<Context.BaggageContext> Baggage { get; set; }
 
         public Classes.RelayCommand NewBaggage
         {
@@ -18,14 +18,14 @@ namespace CourseProject.ViewModel
                 return new Classes.RelayCommand(obj =>
                 {
                     Context.BaggageContext newModel = new Context.BaggageContext(true);
-                    Baggages.Add(newModel);
+                    Baggage.Add(newModel);
                     //MainWindow.init.frame.Navigate(new View.Baggage.Add(newModel));
                 });
             }
         }
 
         public VM_Baggage(string Filter) =>
-            Baggages = Context.BaggageContext.AllBaggage(Filter);
+            Baggage = Context.BaggageContext.AllBaggage(Filter);
 
         public event PropertyChangedEventHandler PropertyChanged;
 

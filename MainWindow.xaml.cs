@@ -22,11 +22,11 @@ namespace CourseProject
     public partial class MainWindow : Window
     {
         public static MainWindow init;
-        public Main AirlinesMain;
-        public Main PlanesMain;
-        public Main FlightsMain;
-        public Main PassengersMain;
-        public Main BaggageMain;
+        public View.Airlines.Main AirlinesMain;
+        public View.Planes.Main PlanesMain;
+        public View.Flights.Main FlightsMain;
+        public View.Passengers.Main PassengersMain;
+        public View.Baggage.Main BaggageMain;
         public MainWindow()
         {
             InitializeComponent();
@@ -58,7 +58,7 @@ namespace CourseProject
 
         private void OpenBaggages(object sender, RoutedEventArgs e)
         {
-            //BaggageMain = new View.Baggage.Main();
+            BaggageMain = new View.Baggage.Main();
             frame.Navigate(BaggageMain);
         }
 

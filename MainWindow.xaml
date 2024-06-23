@@ -17,7 +17,7 @@
         <Button Content="Рейсы" Click="OpenFlights" Margin="310,70,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="132"></Button>
         <Button Content="Пассажиры" Click="OpenPassengers" Margin="460,70,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="132"></Button>
         <Button Content="Багаж" Click="OpenBaggages" Margin="610,70,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="132"></Button>
-
+        
         <Button Content="Выйти" Click="CloseMenu" Margin="0,15,10,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Right" Width="40"></Button>
         <Frame x:Name="frame" Grid.Row="1" NavigationUIVisibility="Hidden" Margin="5,5,5,5" Background="#FFFAFAFA"/>
     </Grid>

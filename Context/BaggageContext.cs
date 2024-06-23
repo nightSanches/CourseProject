@@ -12,10 +12,12 @@ namespace CourseProject.Context
 {
     public class BaggageContext : Baggage
     {
+        private bool isNew = false;
         public BaggageContext(bool save = false)
         {
             if (save) Save(true);
             Id_passenger = new Passengers();
+            isNew = true;
         }
 
         public static ObservableCollection<BaggageContext> AllBaggage(string Filter = "")
@@ -78,6 +80,7 @@ namespace CourseProject.Context
                     $"Id_baggage = {this.Id_baggage}", out connection);
             }
             Connection.CloseConnection(connection);
+            isNew = false;
             MainWindow.init.frame.Navigate(MainWindow.init.BaggageMain);
         }
 
@@ -120,7 +123,27 @@ namespace CourseProject.Context
                 return new RelayCommand(obj =>
                 {
                     Delete();
-                    (MainWindow.init.BaggageMain.DataContext as ViewModel.VM_Baggage).Baggages.Remove(this);
+                    (MainWindow.init.BaggageMain.DataContext as ViewModel.VM_Baggage).Baggage.Remove(this);
+                });
+            }
+        }
+        public RelayCommand OnCancel
+        {
+            get
+            {
+                return new RelayCommand(obj =>
+                {
+                    if (isNew)
+                    {
+                        Delete();
+                        (MainWindow.init.BaggageMain.DataContext as ViewModel.VM_Baggage).Baggage.Remove(this);
+                        MainWindow.init.frame.Navigate(MainWindow.init.BaggageMain);
+                    }
+                    else if (!isNew)
+                    {
+                        MainWindow.init.frame.Navigate(MainWindow.init.BaggageMain);
+                        View.Baggage.Main.init.ReloadPage();
+                    }
                 });
             }
         }
