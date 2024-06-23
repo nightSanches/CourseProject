@@ -6,8 +6,9 @@ using System.Text;
 
 namespace CourseProject.Model
 {
-    public class Planes
+    public class Planes : INotifyPropertyChanged
     {
+        // Код самолета
         private int id_plane;
         public int Id_plane
         {
@@ -18,6 +19,8 @@ namespace CourseProject.Model
                 OnPropertyChanged("Id_plane");
             }
         }
+
+        // Год выпуска самолета
         private int year_of_manufacture;
         public int Year_of_manufacture
         {
@@ -29,6 +32,7 @@ namespace CourseProject.Model
             }
         }
 
+        // Грузоподъемность
         private int carrying;
         public int Carrying
         {
@@ -40,6 +44,7 @@ namespace CourseProject.Model
             }
         }
 
+        // Пассажирских мест
         private int seats;
         public int Seats
         {

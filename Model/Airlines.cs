@@ -8,6 +8,7 @@ namespace CourseProject.Model
 {
     public class Airlines : INotifyPropertyChanged
     {
+        // Код авиакомпании
         private int id_airline;
         public int Id_airline
         {
@@ -18,6 +19,8 @@ namespace CourseProject.Model
                 OnPropertyChanged("Id_airline");
             }
         }
+
+        // Название авиакомпании
         private string airline_name;
         public string Airline_name
         {
@@ -29,6 +32,7 @@ namespace CourseProject.Model
             }
         }
 
+        // Страна регистрации авиакомпании
         private string country;
         public string Country
         {
