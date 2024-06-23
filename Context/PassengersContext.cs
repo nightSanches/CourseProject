@@ -65,34 +65,35 @@ namespace CourseProject.Context
             SqlConnection connection;
             if (New)
             {
-                SqlDataReader dataBaggage = Connection.Query("INSERT INTO " +
-                    "[dbo].[baggage] (" +
-                    "Weight) " +
-                    "OUTPUT Inserted.Id_baggage " +
-                    $"VALUES (" +
-                    $"{this.Weight})", out connection);
-                dataBaggage.Read();
-                this.Id_baggage = dataBaggage.GetInt32(0);
+                SqlDataReader dataPassengers = Connection.Query("INSERT INTO " +
+                    "[dbo].[passengers] (" +
+                    "Surname, Name, Patronymic, Passport) " +
+                    "OUTPUT Inserted.Id_passenger " +
+                    $"VALUES ('{this.Surname}', '{this.Name}', '{this.Patronymic}', '{this.Passport}')", out connection);
+                dataPassengers.Read();
+                this.Id_passenger = dataPassengers.GetInt32(0);
             }
             else
             {
-                Connection.Query("UPDATE [dbo].[baggage] " +
+                Connection.Query("UPDATE [dbo].[passengers] " +
                     "SET " +
-                    $"Id_passenger = {this.Id_passenger.Id_passenger}, " +
-                    $"Weight = {this.Weight} " +
+                    $"Surname = '{this.Surname}', " +
+                    $"Name = '{this.Name}', " +
+                    $"Patronymic = '{this.Patronymic}', " +
+                    $"Passport = '{this.Passport}' " +
                     $"WHERE " +
-                    $"Id_baggage = {this.Id_baggage}", out connection);
+                    $"Id_passenger = {this.Id_passenger}", out connection);
             }
             Connection.CloseConnection(connection);
-            MainWindow.init.frame.Navigate(MainWindow.init.BaggageMain);
+            MainWindow.init.frame.Navigate(MainWindow.init.PassengersMain);
         }
 
         public void Delete()
         {
             SqlConnection connection;
-            Connection.Query("DELETE FROM [dbo].[baggage] " +
+            Connection.Query("DELETE FROM [dbo].[passengers] " +
                 "WHERE " +
-                $"Id_baggage = {this.Id_baggage}", out connection);
+                $"Id_passenger = {this.Id_passenger}", out connection);
             Connection.CloseConnection(connection);
         }
 
@@ -102,7 +103,7 @@ namespace CourseProject.Context
             {
                 return new RelayCommand(obj =>
                 {
-                    MainWindow.init.frame.Navigate(new View.Baggage.Add(this));
+                    MainWindow.init.frame.Navigate(new View.Passengers.Add(this));
                 });
             }
         }
@@ -113,7 +114,7 @@ namespace CourseProject.Context
             {
                 return new RelayCommand(obj =>
                 {
-                    Id_passenger = PassengersContext.AllPassengers().Where(x => x.Id_passenger == this.Id_passenger.Id_passenger).First();
+                    Id_flight = FlightsContext.AllFlights().Where(x => x.Id_flight == this.Id_flight.Id_flight).First();
                     Save();
                 });
             }
@@ -126,7 +127,7 @@ namespace CourseProject.Context
                 return new RelayCommand(obj =>
                 {
                     Delete();
-                    (MainWindow.init.BaggageMain.DataContext as ViewModel.VM_Baggage).Baggages.Remove(this);
+                    (MainWindow.init.PassengersMain.DataContext as ViewModel.VM_Passengers).Passengers.Remove(this);
                 });
             }
         }
