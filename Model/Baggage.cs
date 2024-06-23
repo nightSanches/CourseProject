@@ -21,8 +21,8 @@ namespace CourseProject.Model
         }
 
         // Код пассажира
-        private int id_passenger;
-        public int Id_passenger
+        private Passengers id_passenger;
+        public Passengers Id_passenger
         {
             get { return id_passenger; }
             set

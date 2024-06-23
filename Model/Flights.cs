@@ -21,8 +21,8 @@ namespace CourseProject.Model
         }
 
         // Код авиакомпании
-        private int id_airline;
-        public int Id_airline
+        private Airlines id_airline;
+        public Airlines Id_airline
         {
             get { return id_airline; }
             set
@@ -33,8 +33,8 @@ namespace CourseProject.Model
         }
 
         // Код самолета
-        private int id_plane;
-        public int Id_plane
+        private Planes id_plane;
+        public Planes Id_plane
         {
             get { return id_plane; }
             set

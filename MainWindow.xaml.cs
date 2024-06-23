@@ -20,9 +20,12 @@ namespace CourseProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static MainWindow init;
+        public View.Baggage.Main BaggageMain;
         public MainWindow()
         {
             InitializeComponent();
+            init = this;
         }
     }
 }

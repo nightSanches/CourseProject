@@ -69,8 +69,8 @@ namespace CourseProject.Model
         }
 
         // Код рейса
-        private int id_flight;
-        public int Id_flight
+        private Flights id_flight;
+        public Flights Id_flight
         {
             get { return id_flight; }
             set
