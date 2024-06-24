@@ -6,10 +6,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Text;
-using Excel = Microsoft.Office.Interop.Excel;
+using Microsoft.Office.Interop.Excel;
 using Microsoft.Win32;
 using System.Net.Mail;
-using Microsoft.Office.Interop.Excel;
 
 namespace CourseProject.Context
 {
@@ -93,12 +92,12 @@ namespace CourseProject.Context
             sfd.ShowDialog();
             if (sfd.FileName != "")
             {
-                Excel.Application excelApp = new Excel.Application();
+                Application excelApp = new Application();
                 try
                 {
                     excelApp.Visible = false;
-                    Excel.Workbook workbook = excelApp.Workbooks.Add();
-                    Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Sheets[1];
+                    Workbook workbook = excelApp.Workbooks.Add();
+                    Worksheet worksheet = (Worksheet)workbook.Sheets[1];
 
                     worksheet.Cells[1, 1] = "Код самолета";
                     worksheet.Cells[1, 2] = "Год выпуска";

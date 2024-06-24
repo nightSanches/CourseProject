@@ -14,12 +14,12 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Label x:Name="labelRole" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold" Content="Добро пожаловать! Роль - адмэн" Margin="0,0,0,0" HorizontalAlignment="Left" Width="365" Height="50" VerticalAlignment="Top"></Label>
-        <Grid x:Name="ButtonsGrid" Margin="0,10,0,0" Height="110" VerticalAlignment="Top" HorizontalAlignment="Center" Width="800">
-            <Button Content="Авиакомпании" Click="OpenAirlines" Margin="34,70,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="132"></Button>
-            <Button Content="Самолеты" Click="OpenPlanes" Margin="184,70,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="132"></Button>
+        <Grid HorizontalAlignment="Stretch" x:Name="ButtonsGrid" Margin="0,10,0,0" Height="110" VerticalAlignment="Top">
+            <Button Content="Авиакомпании" Click="OpenAirlines" Margin="0,70,600,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Center" Width="132"></Button>
+            <Button Content="Самолеты" Click="OpenPlanes" Margin="0,70,300,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Center" Width="132"></Button>
             <Button Content="Рейсы" Click="OpenFlights" Margin="0,70,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Center" Width="132"></Button>
-            <Button x:Name="passengers" Content="Пассажиры" Click="OpenPassengers" Margin="484,70,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="132"></Button>
-            <Button x:Name="baggage" Content="Багаж" Click="OpenBaggages" Margin="634,70,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="132"></Button>
+            <Button x:Name="passengers" Content="Пассажиры" Click="OpenPassengers" Margin="300,70,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Center" Width="132"></Button>
+            <Button x:Name="baggage" Content="Багаж" Click="OpenBaggages" Margin="600,70,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Center" Width="132"></Button>
             <Button Content="Выйти" Click="CloseMenu" HorizontalAlignment="Right" Width="40" Height="40" VerticalAlignment="Top"/>
         </Grid>
 

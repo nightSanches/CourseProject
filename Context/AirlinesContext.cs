@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Text;
 using Microsoft.Win32;
+using Microsoft.Office.Interop.Excel;
 
 namespace CourseProject.Context
 {
@@ -94,6 +95,46 @@ namespace CourseProject.Context
                 "WHERE " +
                 $"Id_airline = {this.Id_airline}", out connection);
             Connection.CloseConnection(connection);
+        }
+
+        public static void ReportAirlines(ObservableCollection<AirlinesContext> airlines)
+        {
+            SaveFileDialog sfd = new SaveFileDialog
+            {
+                InitialDirectory = @"C:\",
+                Filter = "Excel (*.xlsx)|*.xlsx"
+            };
+            sfd.ShowDialog();
+            if (sfd.FileName != "")
+            {
+                Application excelApp = new Application();
+                try
+                {
+                    excelApp.Visible = false;
+                    Workbook workbook = excelApp.Workbooks.Add();
+                    Worksheet worksheet = (Worksheet)workbook.Sheets[1];
+
+                    worksheet.Cells[1, 1] = "Код авиакомпании";
+                    worksheet.Cells[1, 2] = "Наимнование авикомпании";
+                    worksheet.Cells[1, 3] = "Страна регистрации";
+
+                    int row = 2;
+                    foreach (var airline in airlines)
+                    {
+                        worksheet.Cells[row, 1] = airline.Id_airline;
+                        worksheet.Cells[row, 2] = airline.Airline_name;
+                        worksheet.Cells[row, 3] = airline.Country;
+                        row++;
+                    }
+                    worksheet.Columns.AutoFit();
+                    worksheet.Cells.HorizontalAlignment = XlHAlign.xlHAlignLeft;
+
+                    workbook.SaveAs(sfd.FileName);
+                    workbook.Close();
+                }
+                catch (Exception ex) { };
+                excelApp.Quit();
+            }
         }
 
         public RelayCommand OnEdit
