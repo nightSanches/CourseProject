@@ -35,8 +35,16 @@ namespace CourseProject.View.Login
 
         public void SqlLogin()
         {
+            //SqlConnection connection;
+            //SqlDataReader data = Connection.Query($"SELECT * FROM users WHERE Login = '{tbLogin.Text}' AND Password = '{tbPassword.Text}'", out connection);
+
             SqlConnection connection;
-            SqlDataReader data = Connection.Query($"SELECT * FROM users WHERE Login = '{tbLogin.Text}' AND Password = '{tbPassword.Text}'", out connection);
+            connection = Connection.OpenConnection();
+            SqlCommand command = new SqlCommand("SELECT * FROM users WHERE Login = @login AND Password = @password", connection);
+            command.Parameters.AddWithValue("@login", tbLogin.Text);
+            command.Parameters.AddWithValue("@password", tbPassword.Text);
+            SqlDataReader data = command.ExecuteReader();
+
             if (data.HasRows)
             {
                 while (data.Read())
