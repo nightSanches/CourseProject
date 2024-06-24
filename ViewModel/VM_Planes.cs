@@ -27,6 +27,17 @@ namespace CourseProject.ViewModel
         public VM_Planes() =>
             Planes = Context.PlanesContext.AllPlanes();
 
+        public Classes.RelayCommand ReportPlanes
+        {
+            get
+            {
+                return new Classes.RelayCommand(obj =>
+                {
+                    Context.PlanesContext.ReportPlanes(Planes);
+                });
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged([CallerMemberName] string prop = "")

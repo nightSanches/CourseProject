@@ -6,6 +6,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Text;
+using Excel = Microsoft.Office.Interop.Excel;
+using Microsoft.Win32;
+using System.Net.Mail;
+using Microsoft.Office.Interop.Excel;
 
 namespace CourseProject.Context
 {
@@ -39,8 +43,6 @@ namespace CourseProject.Context
             Connection.CloseConnection(connection);
             return allPlanes;
         }
-
-
 
         public void Save(bool New = false)
         {
@@ -80,14 +82,46 @@ namespace CourseProject.Context
                 $"Id_plane = {this.Id_plane}", out connection);
             Connection.CloseConnection(connection);
         }
-        public RelayCommand Report
+
+        public static void ReportPlanes(ObservableCollection<PlanesContext> planes)
         {
-            get
+            SaveFileDialog sfd = new SaveFileDialog
             {
-                return new RelayCommand(obj =>
+                InitialDirectory = @"C:\",
+                Filter = "Excel (*.xlsx)|*.xlsx"
+            };
+            sfd.ShowDialog();
+            if (sfd.FileName != "")
+            {
+                Excel.Application excelApp = new Excel.Application();
+                try
                 {
-                    
-                });
+                    excelApp.Visible = false;
+                    Excel.Workbook workbook = excelApp.Workbooks.Add();
+                    Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Sheets[1];
+
+                    worksheet.Cells[1, 1] = "Код самолета";
+                    worksheet.Cells[1, 2] = "Год выпуска";
+                    worksheet.Cells[1, 3] = "Грузоподъемность";
+                    worksheet.Cells[1, 4] = "Кол-во пассажирских мест";
+
+                    int row = 2;
+                    foreach (var plane in planes)
+                    {
+                        worksheet.Cells[row, 1] = plane.Id_plane;
+                        worksheet.Cells[row, 2] = plane.Year_of_manufacture;
+                        worksheet.Cells[row, 3] = plane.Carrying;
+                        worksheet.Cells[row, 4] = plane.Seats;
+                        row++;
+                    }
+                    worksheet.Columns.AutoFit();
+                    worksheet.Cells.HorizontalAlignment = XlHAlign.xlHAlignLeft;
+
+                    workbook.SaveAs(sfd.FileName);
+                    workbook.Close();
+                }
+                catch (Exception ex) { };
+                excelApp.Quit();
             }
         }
         public RelayCommand OnEdit
