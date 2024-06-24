@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CourseProject.Context;
+using CourseProject.Model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -26,6 +28,17 @@ namespace CourseProject.ViewModel
 
         public VM_Baggage(string Filter) =>
             Baggage = Context.BaggageContext.AllBaggage(Filter);
+
+        public Classes.RelayCommand ReportBaggage
+        {
+            get
+            {
+                return new Classes.RelayCommand(obj =>
+                {
+                    Context.BaggageContext.ReportBaggage(Baggage);
+                });
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -7,6 +7,8 @@ using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Text;
 using System.Linq;
+using Microsoft.Office.Interop.Excel;
+using Microsoft.Win32;
 
 namespace CourseProject.Context
 {
@@ -98,6 +100,45 @@ namespace CourseProject.Context
             Connection.CloseConnection(connection);
         }
 
+        public static void ReportBaggage(ObservableCollection<BaggageContext> baggage)
+        {
+            SaveFileDialog sfd = new SaveFileDialog
+            {
+                InitialDirectory = @"C:\",
+                Filter = "Excel (*.xlsx)|*.xlsx"
+            };
+            sfd.ShowDialog();
+            if (sfd.FileName != "")
+            {
+                Application excelApp = new Application();
+                try
+                {
+                    excelApp.Visible = false;
+                    Workbook workbook = excelApp.Workbooks.Add();
+                    Worksheet worksheet = (Worksheet)workbook.Sheets[1];
+
+                    worksheet.Cells[1, 1] = "Код багажа";
+                    worksheet.Cells[1, 2] = "Код пассажира";
+                    worksheet.Cells[1, 3] = "Вес багажа(кг.)";
+
+                    int row = 2;
+                    foreach (var bag in baggage)
+                    {
+                        worksheet.Cells[row, 1] = bag.Id_baggage;
+                        worksheet.Cells[row, 2] = bag.Id_passenger.Surname + " " + bag.Id_passenger.Name + " " + bag.Id_passenger.Patronymic;
+                        worksheet.Cells[row, 3] = bag.Weight;
+                        row++;
+                    }
+                    worksheet.Columns.AutoFit();
+                    worksheet.Cells.HorizontalAlignment = XlHAlign.xlHAlignLeft;
+
+                    workbook.SaveAs(sfd.FileName);
+                    workbook.Close();
+                }
+                catch (Exception ex) { };
+                excelApp.Quit();
+            }
+        }
         public RelayCommand OnEdit
         {
             get

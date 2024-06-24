@@ -11,7 +11,7 @@
 
     <Grid>
         <Label Content="Поиск:" Margin="10,0,491,0" VerticalAlignment="Top"/>
-        <TextBox PreviewTextInput="PreviewTextInput" x:Name="tbName" Margin="10,30,127,0" Height="25" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" VerticalAlignment="Top" Padding="10,0" KeyUp="SearchAirlines">
+        <TextBox PreviewTextInput="PreviewTextInput" x:Name="tbName" Margin="10,30,125,0" Height="25" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" VerticalAlignment="Top" Padding="10,0" KeyUp="SearchAirlines">
             <TextBox.Effect>
                 <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
             </TextBox.Effect>
