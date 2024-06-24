@@ -10,18 +10,24 @@
       Title="Main">
 
     <Grid>
-        <Label Content="Пункт отправления:" Margin="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="362"/>
-        <TextBox PreviewTextInput="PreviewTextInput" x:Name="tbName" Margin="10,30,0,0" Height="25" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" VerticalAlignment="Top" Padding="10,0" KeyUp="Search" HorizontalAlignment="Left" Width="362">
-            <TextBox.Effect>
-                <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
-            </TextBox.Effect>
-        </TextBox>
-        <Label Content="Пункт назначения:" Margin="428,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="362"/>
-        <TextBox PreviewTextInput="PreviewTextInput" x:Name="tbName_Копировать" Margin="428,30,0,0" Height="25" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" VerticalAlignment="Top" Padding="10,0" KeyUp="Search" HorizontalAlignment="Left" Width="362">
-            <TextBox.Effect>
-                <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
-            </TextBox.Effect>
-        </TextBox>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="Пункт отправления:" Margin="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="362"/>
+            <TextBox PreviewTextInput="PreviewTextInput" x:Name="tbName" Margin="10,30,10,0" Height="25" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" VerticalAlignment="Top" Padding="10,0" KeyUp="Search">
+                <TextBox.Effect>
+                    <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                </TextBox.Effect>
+            </TextBox>
+            <Label Grid.Column="1" Content="Пункт назначения:" Margin="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="362"/>
+            <TextBox Grid.Column="1" PreviewTextInput="PreviewTextInput" x:Name="tbName_Копировать" Margin="10,30,10,0" Height="25" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" VerticalAlignment="Top" Padding="10,0" KeyUp="Search">
+                <TextBox.Effect>
+                    <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                </TextBox.Effect>
+            </TextBox>
+        </Grid>
 
         <ListView ItemsSource="{Binding Flights}" HorizontalContentAlignment="Stretch" Margin="0,60,0,40" >
             <ListView.ItemTemplate>

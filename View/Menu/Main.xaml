@@ -13,16 +13,16 @@
             <RowDefinition Height="120"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Label x:Name="labelRole" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold" Content="Добро пожаловать! Роль - адмэн" Margin="10,10,0,0" HorizontalAlignment="Left" Width="365" Height="50" VerticalAlignment="Top"></Label>
-        <Grid x:Name="ButtonsGrid" Margin="0,60,0,0" Height="60" VerticalAlignment="Top" HorizontalAlignment="Center" Width="800">
-            <Button Content="Авиакомпании" Click="OpenAirlines" Margin="10,10,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="132"></Button>
-            <Button Content="Самолеты" Click="OpenPlanes" Margin="160,10,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="132"></Button>
-            <Button Content="Рейсы" Click="OpenFlights" Margin="310,10,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="132"></Button>
-            <Button x:Name="passengers" Content="Пассажиры" Click="OpenPassengers" Margin="460,10,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="132"></Button>
-            <Button x:Name="baggage" Content="Багаж" Click="OpenBaggages" Margin="610,10,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="132"></Button>
+        <Label x:Name="labelRole" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold" Content="Добро пожаловать! Роль - адмэн" Margin="0,0,0,0" HorizontalAlignment="Left" Width="365" Height="50" VerticalAlignment="Top"></Label>
+        <Grid x:Name="ButtonsGrid" Margin="0,10,0,0" Height="110" VerticalAlignment="Top" HorizontalAlignment="Center" Width="800">
+            <Button Content="Авиакомпании" Click="OpenAirlines" Margin="34,70,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="132"></Button>
+            <Button Content="Самолеты" Click="OpenPlanes" Margin="184,70,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="132"></Button>
+            <Button Content="Рейсы" Click="OpenFlights" Margin="0,70,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Center" Width="132"></Button>
+            <Button x:Name="passengers" Content="Пассажиры" Click="OpenPassengers" Margin="484,70,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="132"></Button>
+            <Button x:Name="baggage" Content="Багаж" Click="OpenBaggages" Margin="634,70,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="132"></Button>
+            <Button Content="Выйти" Click="CloseMenu" HorizontalAlignment="Right" Width="40" Height="40" VerticalAlignment="Top"/>
         </Grid>
 
-        <Button Content="Выйти" Click="CloseMenu" Margin="0,15,10,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Right" Width="40"></Button>
-        <Frame x:Name="frame" Grid.Row="1" NavigationUIVisibility="Hidden" Margin="5,5,5,5" Background="#FFFAFAFA"/>
+        <Frame x:Name="frame" Grid.Row="1" NavigationUIVisibility="Hidden" Margin="5,0,5,5" Background="#FFFAFAFA"/>
     </Grid>
 </Page>

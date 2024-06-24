@@ -27,5 +27,29 @@ namespace CourseProject.View.Planes
             };
             View.Menu.Main.init.ButtonsGrid.IsEnabled = false;
         }
+
+        private void SaveClick(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbYear.Text) || !Classes.Common.CheckRegex.Match("^[0-9]{4}$", tbYear.Text))
+            {
+                MessageBox.Show("Неправильно указан год выпуска");
+                BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
+            }
+            else if (string.IsNullOrEmpty(tbCarry.Text) || !Classes.Common.CheckRegex.Match("^[0-9]+$", tbYear.Text))
+            {
+                MessageBox.Show("Неправильно указана грузоподъемность");
+                BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
+            }
+            else if (string.IsNullOrEmpty(tbSeats.Text) || !Classes.Common.CheckRegex.Match("^[0-9]+$", tbYear.Text))
+            {
+                MessageBox.Show("Неправильно указано количество пассажирских мест");
+                BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
+            }
+            else
+            {
+                Binding binding = new Binding("planes.OnSave");
+                ((Button)sender).SetBinding(Button.CommandProperty, binding);
+            }
+        }
     }
 }

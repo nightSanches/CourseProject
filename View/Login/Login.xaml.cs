@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace CourseProject.View.Login
 {
-    /// <summary>
-    /// Логика взаимодействия для Login.xaml
-    /// </summary>
     public partial class Login : Page
     {
         public View.Menu.Main MainMenu;
@@ -30,7 +27,14 @@ namespace CourseProject.View.Login
 
         private void LoginClick(object sender, RoutedEventArgs e)
         {
-            SqlLogin();
+            if (tbLogin.Text == "" || tbPassword.Password == "")
+            {
+                MessageBox.Show("Введите логин и пароль");
+            }
+            else if (tbLogin.Text != "" && tbPassword.Password != "")
+            {
+               SqlLogin();
+            }
         }
 
         public void SqlLogin()
@@ -42,7 +46,7 @@ namespace CourseProject.View.Login
             connection = Connection.OpenConnection();
             SqlCommand command = new SqlCommand("SELECT * FROM users WHERE Login = @login AND Password = @password", connection);
             command.Parameters.AddWithValue("@login", tbLogin.Text);
-            command.Parameters.AddWithValue("@password", tbPassword.Text);
+            command.Parameters.AddWithValue("@password", tbPassword.Password);
             SqlDataReader data = command.ExecuteReader();
 
             if (data.HasRows)
