@@ -26,6 +26,7 @@ namespace CourseProject.View.Baggage
                 baggage = Context,
                 passengers = new ViewModel.VM_Passengers("")
             };
+            MainWindow.init.ButtonsGrid.IsEnabled = false;
         }
     }
 }

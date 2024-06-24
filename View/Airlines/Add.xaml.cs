@@ -25,6 +25,7 @@ namespace CourseProject.View.Airlines
             {
                 airline = Context
             };
+            MainWindow.init.ButtonsGrid.IsEnabled = false;
         }
     }
 }

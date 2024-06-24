@@ -28,7 +28,7 @@
             <TextBox Text="{Binding Id_plane}" Height="26" VerticalAlignment="Top" Margin="10,34,10,0" VerticalContentAlignment="Center" IsEnabled="False"/>
             <Label Content="Год выпуска:" VerticalAlignment="Top" Margin="10,8,10,0" Grid.Column="1"/>
             <TextBox Text="{Binding Year_of_manufacture}" Height="26" VerticalAlignment="Top" Margin="10,34,10,0" VerticalContentAlignment="Center" IsEnabled="False" Grid.Column="1"/>
-            <Label Content="Грузоподъемность:" VerticalAlignment="Top" Margin="10,58,10,0"/>
+            <Label Content="Грузоподъемность (тонн):" VerticalAlignment="Top" Margin="10,58,10,0"/>
             <TextBox Text="{Binding Carrying}" Height="26" VerticalAlignment="Top" Margin="10,84,10,0" VerticalContentAlignment="Center" IsEnabled="False"/>
             <Label Content="Пассажирских мест:" VerticalAlignment="Top" Margin="10,58,10,0" Grid.Column="1"/>
             <TextBox Text="{Binding Seats}" Height="26" VerticalAlignment="Top" Margin="10,84,10,0" VerticalContentAlignment="Center" IsEnabled="False" Grid.Column="1"/>

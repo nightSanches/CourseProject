@@ -89,6 +89,7 @@ namespace CourseProject.Context
             {
                 return new RelayCommand(obj =>
                 {
+                    MainWindow.init.ButtonsGrid.IsEnabled = true;
                     Save();
                 });
             }

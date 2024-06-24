@@ -26,6 +26,7 @@ namespace CourseProject.View.Passengers
                 passengers = Context,
                 flights = new ViewModel.VM_Flights("", "")
             };
+            MainWindow.init.ButtonsGrid.IsEnabled = false;
         }
     }
 }

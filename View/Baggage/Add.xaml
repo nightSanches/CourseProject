@@ -19,7 +19,7 @@
             </Grid.ColumnDefinitions>
             <Label Content="Код багажа:" VerticalAlignment="Top" Margin="10,10,0,0" HorizontalAlignment="Left" Width="380"/>
             <TextBox Text="{Binding baggage.Id_baggage}" Height="26" VerticalAlignment="Top" Margin="10,36,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="380" IsEnabled="False"/>
-            <Label Content="Вес:" VerticalAlignment="Top" Margin="10,10,0,0" Grid.Column="1" HorizontalAlignment="Left" Width="380"/>
+            <Label Content="Вес (кг):" VerticalAlignment="Top" Margin="10,10,0,0" Grid.Column="1" HorizontalAlignment="Left" Width="380"/>
             <TextBox Text="{Binding baggage.Weight}" Height="26" VerticalAlignment="Top" Margin="10,36,0,0" VerticalContentAlignment="Center" Grid.Column="1" HorizontalAlignment="Left" Width="380"/>
             <Label Content="Пассажир:" VerticalAlignment="Top" Margin="10,67,0,0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="780"/>
             <ComboBox x:Name="cbCategory"

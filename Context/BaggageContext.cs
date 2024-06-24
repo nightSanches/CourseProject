@@ -111,6 +111,7 @@ namespace CourseProject.Context
             {
                 return new RelayCommand(obj =>
                 {
+                    MainWindow.init.ButtonsGrid.IsEnabled = true;
                     Id_passenger = PassengersContext.AllPassengers().Where(x => x.Id_passenger == this.Id_passenger.Id_passenger).First();
                     Save();
                 });
@@ -145,6 +146,7 @@ namespace CourseProject.Context
                         MainWindow.init.frame.Navigate(MainWindow.init.BaggageMain);
                         View.Baggage.Main.init.ReloadPage();
                     }
+                    MainWindow.init.ButtonsGrid.IsEnabled = true;
                 });
             }
         }

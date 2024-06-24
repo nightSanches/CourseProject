@@ -163,6 +163,7 @@ namespace CourseProject.Context
             {
                 return new RelayCommand(obj =>
                 {
+                    MainWindow.init.ButtonsGrid.IsEnabled = true;
                     Id_airline = AirlinesContext.AllAirlines().Where(x => x.Id_airline == this.Id_airline.Id_airline).First();
                     Id_plane = PlanesContext.AllPlanes().Where(x => x.Id_plane == this.Id_plane.Id_plane).First();
                     Save();

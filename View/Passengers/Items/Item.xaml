@@ -31,7 +31,7 @@
             <TextBox Text="{Binding Name}" Height="26" VerticalAlignment="Top" Margin="10,34,10,0" VerticalContentAlignment="Center" IsEnabled="False" Grid.Column="1"/>
             <Label Content="Отчество:" VerticalAlignment="Top" Margin="10,8,10,0" Grid.Column="2"/>
             <TextBox Text="{Binding Patronymic}" Height="26" VerticalAlignment="Top" Margin="10,34,10,0" VerticalContentAlignment="Center" IsEnabled="False" Grid.Column="2"/>
-            <Label Content="Пасспорт:" VerticalAlignment="Top" Margin="10,60,10,0"/>
+            <Label Content="Паспорт:" VerticalAlignment="Top" Margin="10,60,10,0"/>
             <TextBox Text="{Binding Passport}" Height="26" VerticalAlignment="Top" Margin="10,86,10,0" VerticalContentAlignment="Center" IsEnabled="False"/>
             <Label Content="Рейс:" VerticalAlignment="Top" Margin="10,60,10,0" Grid.Column="1"/>
             <TextBox Text="{Binding Id_flight.Id_flight}" Height="26" VerticalAlignment="Top" Margin="10,86,10,0" VerticalContentAlignment="Center" IsEnabled="False" Grid.Column="1"/>

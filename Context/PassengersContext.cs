@@ -104,7 +104,7 @@ namespace CourseProject.Context
             {
                 return new RelayCommand(obj =>
                 {
-                   MainWindow.init.frame.Navigate(new View.Passengers.Add(this));
+                    MainWindow.init.frame.Navigate(new View.Passengers.Add(this));
                 });
             }
         }
@@ -115,6 +115,7 @@ namespace CourseProject.Context
             {
                 return new RelayCommand(obj =>
                 {
+                    MainWindow.init.ButtonsGrid.IsEnabled = true;
                     Id_flight = FlightsContext.AllFlights().Where(x => x.Id_flight == this.Id_flight.Id_flight).First();
                     Save();
                 });

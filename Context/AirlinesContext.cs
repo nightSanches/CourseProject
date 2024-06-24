@@ -112,6 +112,7 @@ namespace CourseProject.Context
             {
                 return new RelayCommand(obj =>
                 {
+                    MainWindow.init.ButtonsGrid.IsEnabled = true;
                     Save();
                 });
             }
@@ -146,6 +147,7 @@ namespace CourseProject.Context
                         MainWindow.init.frame.Navigate(MainWindow.init.AirlinesMain);
                         View.Airlines.Main.init.ReloadPage();
                     }
+                    MainWindow.init.ButtonsGrid.IsEnabled = true;
                 });
             }
         }

@@ -23,7 +23,7 @@
             <TextBox Text="{Binding passengers.Name}" Height="26" VerticalAlignment="Top" Margin="266,36,0,0" VerticalContentAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="236"/>
             <Label Content="Отчество:" VerticalAlignment="Top" Margin="126,10,0,0" Grid.Column="1" HorizontalAlignment="Left" Width="264"/>
             <TextBox Text="{Binding passengers.Patronymic}" Height="26" VerticalAlignment="Top" Margin="126,36,0,0" VerticalContentAlignment="Center" Grid.Column="1" HorizontalAlignment="Left" Width="264"/>
-            <Label Content="Пасспорт:" VerticalAlignment="Top" Margin="10,73,0,0" HorizontalAlignment="Left" Width="380"/>
+            <Label Content="Паспорт:" VerticalAlignment="Top" Margin="10,73,0,0" HorizontalAlignment="Left" Width="380"/>
             <TextBox Text="{Binding passengers.Passport}" Height="26" VerticalAlignment="Top" Margin="10,99,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="380"/>
 
             <Label Content="Рейс:" VerticalAlignment="Top" Margin="10,130,0,0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="780"/>
