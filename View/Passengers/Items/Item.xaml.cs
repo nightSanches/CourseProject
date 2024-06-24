@@ -22,5 +22,21 @@ namespace CourseProject.View.Passengers.Items
         {
             InitializeComponent();
         }
+
+        private void DeleteClick(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Вы уверены что хотите удалить информацию о Пассажире?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                MessageBox.Show("Информация о Пассажире успешно удалена!", "Удаление", MessageBoxButton.OK, MessageBoxImage.Information);
+                Binding binding = new Binding("OnDelete");
+                ((Button)sender).SetBinding(Button.CommandProperty, binding);
+            }
+            else
+            {
+                BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
+            }
+        }
     }
 }

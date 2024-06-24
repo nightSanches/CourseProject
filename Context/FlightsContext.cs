@@ -10,6 +10,8 @@ using System.Data;
 using System.Linq;
 using Microsoft.Office.Interop.Excel;
 using Microsoft.Win32;
+using System.Windows;
+using Application = Microsoft.Office.Interop.Excel.Application;
 
 namespace CourseProject.Context
 {
@@ -199,6 +201,7 @@ namespace CourseProject.Context
 
                     workbook.SaveAs(sfd.FileName);
                     workbook.Close();
+                    MessageBox.Show("Экспорт данных был выполнен успешно!", "Успешно", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch (Exception ex) { };
                 excelApp.Quit();

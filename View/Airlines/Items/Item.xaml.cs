@@ -32,5 +32,20 @@ namespace CourseProject.View.Airlines.Items
                 BthDelete.Visibility = Visibility.Visible;
             }
         }
+        private void DeleteClick(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Вы уверены что хотите удалить информацию об Авиакомпании?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                MessageBox.Show("Информация об Авиакомпании успешно удалена!", "Удаление", MessageBoxButton.OK, MessageBoxImage.Information);
+                Binding binding = new Binding("OnDelete");
+                ((Button)sender).SetBinding(Button.CommandProperty, binding);
+            }
+            else
+            {
+                BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
+            }
+        }
     }
 }
