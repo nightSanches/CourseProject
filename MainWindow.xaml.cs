@@ -22,49 +22,13 @@ namespace CourseProject
     public partial class MainWindow : Window
     {
         public static MainWindow init;
-        public View.Airlines.Main AirlinesMain;
-        public View.Planes.Main PlanesMain;
-        public View.Flights.Main FlightsMain;
-        public View.Passengers.Main PassengersMain;
-        public View.Baggage.Main BaggageMain;
+        public View.Menu.Main MainMenu;
         public MainWindow()
         {
             InitializeComponent();
             init = this;
-        }
-
-        private void OpenAirlines(object sender, RoutedEventArgs e)
-        {
-            AirlinesMain = new View.Airlines.Main();
-            frame.Navigate(AirlinesMain);
-        }
-
-        private void OpenPlanes(object sender, RoutedEventArgs e)
-        {
-            PlanesMain = new View.Planes.Main();
-            frame.Navigate(PlanesMain);
-        }
-
-        private void OpenFlights(object sender, RoutedEventArgs e)
-        {
-            FlightsMain = new View.Flights.Main();
-            frame.Navigate(FlightsMain);
-        }
-        private void OpenPassengers(object sender, RoutedEventArgs e)
-        {
-            PassengersMain = new View.Passengers.Main();
-            frame.Navigate(PassengersMain);
-        }
-
-        private void OpenBaggages(object sender, RoutedEventArgs e)
-        {
-            BaggageMain = new View.Baggage.Main();
-            frame.Navigate(BaggageMain);
-        }
-
-        private void CloseMenu(object sender, RoutedEventArgs e)
-        {
-            this.Close();
+            MainMenu = new View.Menu.Main();
+            frame.Navigate(MainMenu);
         }
     }
 }

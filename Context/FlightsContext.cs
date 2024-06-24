@@ -140,7 +140,7 @@ namespace CourseProject.Context
             }
             Connection.CloseConnection(connection);
             isNew = false;
-            MainWindow.init.frame.Navigate(MainWindow.init.FlightsMain);
+            View.Menu.Main.init.frame.Navigate(View.Menu.Main.init.FlightsMain);
             View.Flights.Main.init.ReloadPage();
         }
 
@@ -159,7 +159,7 @@ namespace CourseProject.Context
             {
                 return new RelayCommand(obj =>
                 {
-                    MainWindow.init.frame.Navigate(new View.Flights.Add(this));
+                    View.Menu.Main.init.frame.Navigate(new View.Flights.Add(this));
                 });
             }
         }
@@ -170,7 +170,7 @@ namespace CourseProject.Context
             {
                 return new RelayCommand(obj =>
                 {
-                    MainWindow.init.ButtonsGrid.IsEnabled = true;
+                    View.Menu.Main.init.ButtonsGrid.IsEnabled = true;
                     Id_airline = AirlinesContext.AllAirlines().Where(x => x.Id_airline == this.Id_airline.Id_airline).First();
                     Id_plane = PlanesContext.AllPlanes().Where(x => x.Id_plane == this.Id_plane.Id_plane).First();
                     Save();
@@ -185,7 +185,7 @@ namespace CourseProject.Context
                 return new RelayCommand(obj =>
                 {
                     Delete();
-                    (MainWindow.init.FlightsMain.DataContext as ViewModel.VM_Flights).Flights.Remove(this);
+                    (View.Menu.Main.init.FlightsMain.DataContext as ViewModel.VM_Flights).Flights.Remove(this);
                 });
             }
         }
@@ -198,16 +198,16 @@ namespace CourseProject.Context
                     if (isNew)
                     {
                         Delete();
-                        (MainWindow.init.FlightsMain.DataContext as ViewModel.VM_Flights).Flights.Remove(this);
-                        MainWindow.init.frame.Navigate(MainWindow.init.FlightsMain);
+                        (View.Menu.Main.init.FlightsMain.DataContext as ViewModel.VM_Flights).Flights.Remove(this);
+                        View.Menu.Main.init.frame.Navigate(View.Menu.Main.init.FlightsMain);
                         View.Flights.Main.init.ReloadPage();
                     }
                     else if (!isNew)
                     {
-                        MainWindow.init.frame.Navigate(MainWindow.init.FlightsMain);
+                        View.Menu.Main.init.frame.Navigate(View.Menu.Main.init.FlightsMain);
                         View.Flights.Main.init.ReloadPage();
                     }
-                    MainWindow.init.ButtonsGrid.IsEnabled = true;
+                    View.Menu.Main.init.ButtonsGrid.IsEnabled = true;
                 });
             }
         }

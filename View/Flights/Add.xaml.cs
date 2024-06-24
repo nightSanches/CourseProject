@@ -27,7 +27,7 @@ namespace CourseProject.View.Flights
                 airline = new ViewModel.VM_Airlines(""),
                 plane = new ViewModel.VM_Planes()
             };
-            MainWindow.init.ButtonsGrid.IsEnabled = false;
+            View.Menu.Main.init.ButtonsGrid.IsEnabled = false;
         }
     }
 }

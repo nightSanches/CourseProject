@@ -85,7 +85,7 @@ namespace CourseProject.Context
             }
             Connection.CloseConnection(connection);
             isNew = false;
-            MainWindow.init.frame.Navigate(MainWindow.init.BaggageMain);
+            View.Menu.Main.init.frame.Navigate(View.Menu.Main.init.BaggageMain);
             View.Baggage.Main.init.ReloadPage();
         }
 
@@ -104,7 +104,7 @@ namespace CourseProject.Context
             {
                 return new RelayCommand(obj =>
                 {
-                    MainWindow.init.frame.Navigate(new View.Baggage.Add(this));
+                    View.Menu.Main.init.frame.Navigate(new View.Baggage.Add(this));
                 });
             }
         }
@@ -115,7 +115,7 @@ namespace CourseProject.Context
             {
                 return new RelayCommand(obj =>
                 {
-                    MainWindow.init.ButtonsGrid.IsEnabled = true;
+                    View.Menu.Main.init.ButtonsGrid.IsEnabled = true;
                     Id_passenger = PassengersContext.AllPassengers().Where(x => x.Id_passenger == this.Id_passenger.Id_passenger).First();
                     Save();
                 });
@@ -129,7 +129,7 @@ namespace CourseProject.Context
                 return new RelayCommand(obj =>
                 {
                     Delete();
-                    (MainWindow.init.BaggageMain.DataContext as ViewModel.VM_Baggage).Baggage.Remove(this);
+                    (View.Menu.Main.init.BaggageMain.DataContext as ViewModel.VM_Baggage).Baggage.Remove(this);
                 });
             }
         }
@@ -142,16 +142,16 @@ namespace CourseProject.Context
                     if (isNew)
                     {
                         Delete();
-                        (MainWindow.init.BaggageMain.DataContext as ViewModel.VM_Baggage).Baggage.Remove(this);
-                        MainWindow.init.frame.Navigate(MainWindow.init.BaggageMain);
+                        (View.Menu.Main.init.BaggageMain.DataContext as ViewModel.VM_Baggage).Baggage.Remove(this);
+                        View.Menu.Main.init.frame.Navigate(View.Menu.Main.init.BaggageMain);
                         View.Baggage.Main.init.ReloadPage();
                     }
                     else if (!isNew)
                     {
-                        MainWindow.init.frame.Navigate(MainWindow.init.BaggageMain);
+                        View.Menu.Main.init.frame.Navigate(View.Menu.Main.init.BaggageMain);
                         View.Baggage.Main.init.ReloadPage();
                     }
-                    MainWindow.init.ButtonsGrid.IsEnabled = true;
+                    View.Menu.Main.init.ButtonsGrid.IsEnabled = true;
                 });
             }
         }

@@ -1,0 +1,28 @@
+﻿<Page x:Class="CourseProject.View.Menu.Main"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CourseProject.View.Menu"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Main">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold" Content="Добро пожаловать, Костя! Роль - адмэн" Margin="10,10,0,0" HorizontalAlignment="Left" Width="365" Height="50" VerticalAlignment="Top"></Label>
+        <Grid x:Name="ButtonsGrid" Margin="0,60,0,0" Height="60" VerticalAlignment="Top" HorizontalAlignment="Center" Width="800">
+            <Button Content="Авиакомпании" Click="OpenAirlines" Margin="10,10,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="132"></Button>
+            <Button Content="Самолеты" Click="OpenPlanes" Margin="160,10,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="132"></Button>
+            <Button Content="Рейсы" Click="OpenFlights" Margin="310,10,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="132"></Button>
+            <Button Content="Пассажиры" Click="OpenPassengers" Margin="460,10,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="132"></Button>
+            <Button Content="Багаж" Click="OpenBaggages" Margin="610,10,0,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="132"></Button>
+        </Grid>
+
+        <Button Content="Выйти" Click="CloseMenu" Margin="0,15,10,0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Right" Width="40"></Button>
+        <Frame x:Name="frame" Grid.Row="1" NavigationUIVisibility="Hidden" Margin="5,5,5,5" Background="#FFFAFAFA"/>
+    </Grid>
+</Page>

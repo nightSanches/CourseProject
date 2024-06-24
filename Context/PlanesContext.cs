@@ -66,7 +66,7 @@ namespace CourseProject.Context
             }
             Connection.CloseConnection(connection);
             isNew = false;
-            MainWindow.init.frame.Navigate(MainWindow.init.PlanesMain);
+            View.Menu.Main.init.frame.Navigate(View.Menu.Main.init.PlanesMain);
             View.Planes.Main.init.ReloadPage();
         }
 
@@ -85,7 +85,7 @@ namespace CourseProject.Context
             {
                 return new RelayCommand(obj =>
                 {
-                    MainWindow.init.frame.Navigate(new View.Planes.Add(this));
+                    View.Menu.Main.init.frame.Navigate(new View.Planes.Add(this));
                 });
             }
         }
@@ -96,7 +96,7 @@ namespace CourseProject.Context
             {
                 return new RelayCommand(obj =>
                 {
-                    MainWindow.init.ButtonsGrid.IsEnabled = true;
+                    View.Menu.Main.init.ButtonsGrid.IsEnabled = true;
                     Save();
                 });
             }
@@ -109,7 +109,7 @@ namespace CourseProject.Context
                 return new RelayCommand(obj =>
                 {
                     Delete();
-                    (MainWindow.init.PlanesMain.DataContext as ViewModel.VM_Planes).Planes.Remove(this);
+                    (View.Menu.Main.init.PlanesMain.DataContext as ViewModel.VM_Planes).Planes.Remove(this);
                 });
             }
         }
@@ -122,16 +122,16 @@ namespace CourseProject.Context
                     if (isNew)
                     {
                         Delete();
-                        (MainWindow.init.PlanesMain.DataContext as ViewModel.VM_Planes).Planes.Remove(this);
-                        MainWindow.init.frame.Navigate(MainWindow.init.PlanesMain);
+                        (View.Menu.Main.init.PlanesMain.DataContext as ViewModel.VM_Planes).Planes.Remove(this);
+                        View.Menu.Main.init.frame.Navigate(View.Menu.Main.init.PlanesMain);
                         View.Planes.Main.init.ReloadPage();
                     }
                     else if (!isNew)
                     {
-                        MainWindow.init.frame.Navigate(MainWindow.init.PlanesMain);
+                        View.Menu.Main.init.frame.Navigate(View.Menu.Main.init.PlanesMain);
                         View.Planes.Main.init.ReloadPage();
                     }
-                    MainWindow.init.ButtonsGrid.IsEnabled = true;
+                    View.Menu.Main.init.ButtonsGrid.IsEnabled = true;
                 });
             }
         }

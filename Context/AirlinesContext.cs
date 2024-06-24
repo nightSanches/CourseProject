@@ -83,7 +83,7 @@ namespace CourseProject.Context
             }
             Connection.CloseConnection(connection);
             isNew = false;
-            MainWindow.init.frame.Navigate(MainWindow.init.AirlinesMain);
+            View.Menu.Main.init.frame.Navigate(View.Menu.Main.init.AirlinesMain);
             View.Airlines.Main.init.ReloadPage();
         }
 
@@ -102,7 +102,7 @@ namespace CourseProject.Context
             {
                 return new RelayCommand(obj =>
                 {
-                    MainWindow.init.frame.Navigate(new View.Airlines.Add(this));
+                    View.Menu.Main.init.frame.Navigate(new View.Airlines.Add(this));
                 });
             }
         }
@@ -113,7 +113,7 @@ namespace CourseProject.Context
             {
                 return new RelayCommand(obj =>
                 {
-                    MainWindow.init.ButtonsGrid.IsEnabled = true;
+                    View.Menu.Main.init.ButtonsGrid.IsEnabled = true;
                     Save();
                 });
             }
@@ -126,7 +126,7 @@ namespace CourseProject.Context
                 return new RelayCommand(obj =>
                 {
                     Delete();
-                    (MainWindow.init.AirlinesMain.DataContext as ViewModel.VM_Airlines).Airlines.Remove(this);
+                    (View.Menu.Main.init.AirlinesMain.DataContext as ViewModel.VM_Airlines).Airlines.Remove(this);
                 });
             }
         }
@@ -140,15 +140,16 @@ namespace CourseProject.Context
                     if (isNew)
                     {
                         Delete();
-                        (MainWindow.init.AirlinesMain.DataContext as ViewModel.VM_Airlines).Airlines.Remove(this);
-                        MainWindow.init.frame.Navigate(MainWindow.init.AirlinesMain);
+                        (View.Menu.Main.init.AirlinesMain.DataContext as ViewModel.VM_Airlines).Airlines.Remove(this);
+                        View.Menu.Main.init.frame.Navigate(View.Menu.Main.init.AirlinesMain);
+                        View.Airlines.Main.init.ReloadPage();
                     }
                     else if(!isNew)
                     {
-                        MainWindow.init.frame.Navigate(MainWindow.init.AirlinesMain);
+                        View.Menu.Main.init.frame.Navigate(View.Menu.Main.init.AirlinesMain);
                         View.Airlines.Main.init.ReloadPage();
                     }
-                    MainWindow.init.ButtonsGrid.IsEnabled = true;
+                    View.Menu.Main.init.ButtonsGrid.IsEnabled = true;
                 });
             }
         }

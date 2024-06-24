@@ -19,7 +19,7 @@ namespace CourseProject.ViewModel
                 {
                     Context.FlightsContext newModel = new Context.FlightsContext(true);
                     Flights.Add(newModel);
-                    MainWindow.init.frame.Navigate(new View.Flights.Add(newModel));
+                    View.Menu.Main.init.frame.Navigate(new View.Flights.Add(newModel));
                 });
             }
         }

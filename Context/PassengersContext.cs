@@ -92,7 +92,7 @@ namespace CourseProject.Context
             }
             Connection.CloseConnection(connection);
             isNew = false;
-            MainWindow.init.frame.Navigate(MainWindow.init.PassengersMain);
+            View.Menu.Main.init.frame.Navigate(View.Menu.Main.init.PassengersMain);
             View.Passengers.Main.init.ReloadPage();
         }
 
@@ -111,7 +111,7 @@ namespace CourseProject.Context
             {
                 return new RelayCommand(obj =>
                 {
-                    MainWindow.init.frame.Navigate(new View.Passengers.Add(this));
+                    View.Menu.Main.init.frame.Navigate(new View.Passengers.Add(this));
                 });
             }
         }
@@ -122,7 +122,7 @@ namespace CourseProject.Context
             {
                 return new RelayCommand(obj =>
                 {
-                    MainWindow.init.ButtonsGrid.IsEnabled = true;
+                    View.Menu.Main.init.ButtonsGrid.IsEnabled = true;
                     Id_flight = FlightsContext.AllFlights().Where(x => x.Id_flight == this.Id_flight.Id_flight).First();
                     Save();
                 });
@@ -136,7 +136,7 @@ namespace CourseProject.Context
                 return new RelayCommand(obj =>
                 {
                     Delete();
-                    (MainWindow.init.PassengersMain.DataContext as ViewModel.VM_Passengers).Passengers.Remove(this);
+                    (View.Menu.Main.init.PassengersMain.DataContext as ViewModel.VM_Passengers).Passengers.Remove(this);
                 });
             }
         }
@@ -149,16 +149,16 @@ namespace CourseProject.Context
                     if (isNew)
                     {
                         Delete();
-                        (MainWindow.init.PassengersMain.DataContext as ViewModel.VM_Passengers).Passengers.Remove(this);
-                        MainWindow.init.frame.Navigate(MainWindow.init.PassengersMain);
+                        (View.Menu.Main.init.PassengersMain.DataContext as ViewModel.VM_Passengers).Passengers.Remove(this);
+                        View.Menu.Main.init.frame.Navigate(View.Menu.Main.init.PassengersMain);
                         View.Passengers.Main.init.ReloadPage();
                     }
                     else if (!isNew)
                     {
-                        MainWindow.init.frame.Navigate(MainWindow.init.PassengersMain);
+                        View.Menu.Main.init.frame.Navigate(View.Menu.Main.init.PassengersMain);
                         View.Passengers.Main.init.ReloadPage();
                     }
-                    MainWindow.init.ButtonsGrid.IsEnabled = true;
+                    View.Menu.Main.init.ButtonsGrid.IsEnabled = true;
                 });
             }
         }

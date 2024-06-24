@@ -25,7 +25,7 @@ namespace CourseProject.View.Planes
             {
                 planes = Context
             };
-            MainWindow.init.ButtonsGrid.IsEnabled = false;
+            View.Menu.Main.init.ButtonsGrid.IsEnabled = false;
         }
     }
 }
