@@ -118,7 +118,7 @@ namespace CourseProject.Context
                     Worksheet worksheet = (Worksheet)workbook.Sheets[1];
 
                     worksheet.Cells[1, 1] = "Код багажа";
-                    worksheet.Cells[1, 2] = "Код пассажира";
+                    worksheet.Cells[1, 2] = "Пассажир";
                     worksheet.Cells[1, 3] = "Вес багажа(кг.)";
 
                     int row = 2;

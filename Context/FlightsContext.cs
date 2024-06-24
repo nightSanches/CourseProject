@@ -8,6 +8,8 @@ using System.Data.SqlClient;
 using System.Text;
 using System.Data;
 using System.Linq;
+using Microsoft.Office.Interop.Excel;
+using Microsoft.Win32;
 
 namespace CourseProject.Context
 {
@@ -151,6 +153,56 @@ namespace CourseProject.Context
                 "WHERE " +
                 $"Id_flight = {this.Id_flight}", out connection);
             Connection.CloseConnection(connection);
+        }
+
+        public static void ReportFlights(ObservableCollection<FlightsContext> flights)
+        {
+            SaveFileDialog sfd = new SaveFileDialog
+            {
+                InitialDirectory = @"C:\",
+                Filter = "Excel (*.xlsx)|*.xlsx"
+            };
+            sfd.ShowDialog();
+            if (sfd.FileName != "")
+            {
+                Application excelApp = new Application();
+                try
+                {
+                    excelApp.Visible = false;
+                    Workbook workbook = excelApp.Workbooks.Add();
+                    Worksheet worksheet = (Worksheet)workbook.Sheets[1];
+
+                    worksheet.Cells[1, 1] = "Код рейса";
+                    worksheet.Cells[1, 2] = "Авиакомпания";
+                    worksheet.Cells[1, 3] = "Самолет";
+                    worksheet.Cells[1, 4] = "Место отправления";
+                    worksheet.Cells[1, 5] = "Место назначения";
+                    worksheet.Cells[1, 6] = "Дата отправления";
+                    worksheet.Cells[1, 7] = "Время отправления";
+                    worksheet.Cells[1, 8] = "Время прибытия";
+
+                    int row = 2;
+                    foreach (var flight in flights)
+                    {
+                        worksheet.Cells[row, 1] = flight.Id_flight;
+                        worksheet.Cells[row, 2] = flight.Id_airline.Airline_name;
+                        worksheet.Cells[row, 3] = flight.Id_plane.Id_plane;
+                        worksheet.Cells[row, 4] = flight.Departure;
+                        worksheet.Cells[row, 5] = flight.Destination;
+                        worksheet.Cells[row, 6] = flight.Date_departure;
+                        worksheet.Cells[row, 7] = flight.Time_departure;
+                        worksheet.Cells[row, 8] = flight.Time_destination;
+                        row++;
+                    }
+                    worksheet.Columns.AutoFit();
+                    worksheet.Cells.HorizontalAlignment = XlHAlign.xlHAlignLeft;
+
+                    workbook.SaveAs(sfd.FileName);
+                    workbook.Close();
+                }
+                catch (Exception ex) { };
+                excelApp.Quit();
+            }
         }
 
         public RelayCommand OnEdit

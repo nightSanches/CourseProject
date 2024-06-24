@@ -14,6 +14,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="115"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Label Content="Пункт отправления:" Margin="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="362"/>
             <TextBox PreviewTextInput="PreviewTextInput" x:Name="tbName" Margin="10,30,10,0" Height="25" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" VerticalAlignment="Top" Padding="10,0" KeyUp="Search">
@@ -27,6 +28,11 @@
                     <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
                 </TextBox.Effect>
             </TextBox>
+            <Button Grid.Column="2" Content="Экспорт" Width="100" Height="25" Margin="0,30,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Command="{Binding ReportFlights}">
+                <Button.Effect>
+                    <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
+                </Button.Effect>
+            </Button>
         </Grid>
 
         <ListView ItemsSource="{Binding Flights}" HorizontalContentAlignment="Stretch" Margin="0,60,0,40" >

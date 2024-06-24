@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseProject.Model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -26,6 +27,17 @@ namespace CourseProject.ViewModel
 
         public VM_Passengers(string Filter) =>
             Passengers = Context.PassengersContext.AllPassengers(Filter);
+
+        public Classes.RelayCommand ReportPassengers
+        {
+            get
+            {
+                return new Classes.RelayCommand(obj =>
+                {
+                    Context.PassengersContext.ReportPassengers(Passengers);
+                });
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

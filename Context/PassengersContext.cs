@@ -7,6 +7,8 @@ using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Text;
 using System.Linq;
+using Microsoft.Office.Interop.Excel;
+using Microsoft.Win32;
 
 namespace CourseProject.Context
 {
@@ -103,6 +105,52 @@ namespace CourseProject.Context
                 "WHERE " +
                 $"Id_passenger = {this.Id_passenger}", out connection);
             Connection.CloseConnection(connection);
+        }
+
+        public static void ReportPassengers(ObservableCollection<PassengersContext> passengers)
+        {
+            SaveFileDialog sfd = new SaveFileDialog
+            {
+                InitialDirectory = @"C:\",
+                Filter = "Excel (*.xlsx)|*.xlsx"
+            };
+            sfd.ShowDialog();
+            if (sfd.FileName != "")
+            {
+                Application excelApp = new Application();
+                try
+                {
+                    excelApp.Visible = false;
+                    Workbook workbook = excelApp.Workbooks.Add();
+                    Worksheet worksheet = (Worksheet)workbook.Sheets[1];
+
+                    worksheet.Cells[1, 1] = "Код пассажира";
+                    worksheet.Cells[1, 2] = "Фамилия";
+                    worksheet.Cells[1, 3] = "Имя";
+                    worksheet.Cells[1, 4] = "Отчество";
+                    worksheet.Cells[1, 5] = "Паспорт";
+                    worksheet.Cells[1, 6] = "Рейс";
+
+                    int row = 2;
+                    foreach (var passenger in passengers)
+                    {
+                        worksheet.Cells[row, 1] = passenger.Id_passenger;
+                        worksheet.Cells[row, 2] = passenger.Surname;
+                        worksheet.Cells[row, 3] = passenger.Name;
+                        worksheet.Cells[row, 4] = passenger.Patronymic;
+                        worksheet.Cells[row, 5] = passenger.Passport;
+                        worksheet.Cells[row, 6] = passenger.Id_flight.Id_flight;
+                        row++;
+                    }
+                    worksheet.Columns.AutoFit();
+                    worksheet.Cells.HorizontalAlignment = XlHAlign.xlHAlignLeft;
+
+                    workbook.SaveAs(sfd.FileName);
+                    workbook.Close();
+                }
+                catch (Exception ex) { };
+                excelApp.Quit();
+            }
         }
 
         public RelayCommand OnEdit
