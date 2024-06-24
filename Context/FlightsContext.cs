@@ -114,7 +114,7 @@ namespace CourseProject.Context
             {
                 return new RelayCommand(obj =>
                 {
-                    //MainWindow.init.frame.Navigate(new View.Flights.Add(this));
+                    MainWindow.init.frame.Navigate(new View.Flights.Add(this));
                 });
             }
         }

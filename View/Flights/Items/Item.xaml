@@ -4,9 +4,40 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CourseProject.View.Flights.Items"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             mc:Ignorable="d" HorizontalAlignment="Stretch" Height="250">
+    <Grid Background="White">
+        <Grid.Effect>
+            <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
+        </Grid.Effect>
+        <Button Height="25" Content="Изменить" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,95,0,0" Width="55" FontSize="10" Command="{Binding OnEdit}">
+            <Button.Effect>
+                <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
+            </Button.Effect>
+        </Button>
+        <Button Height="25" Content="Удалить" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,125,0,0" Width="55" FontSize="10" Command="{Binding OnDelete}">
+            <Button.Effect>
+                <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
+            </Button.Effect>
+        </Button>
+        <Grid Margin="65,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Место отправления:" VerticalAlignment="Top" Margin="10,8,10,0"/>
+            <TextBox Text="{Binding Departure}" Height="26" VerticalAlignment="Top" Margin="10,34,10,0" VerticalContentAlignment="Center" IsEnabled="False"/>
+            <Label Content="Место назначения:" VerticalAlignment="Top" Margin="10,8,10,0" Grid.Column="1"/>
+            <TextBox Text="{Binding Destination}" Height="26" VerticalAlignment="Top" Margin="10,34,10,0" VerticalContentAlignment="Center" IsEnabled="False" Grid.Column="1"/>
+            <Label Content="Авиакомпания:" VerticalAlignment="Top" Margin="10,60,10,0"/>
+            <TextBox Text="{Binding Id_airline.Airline_name}" Height="26" VerticalAlignment="Top" Margin="10,86,10,0" VerticalContentAlignment="Center" IsEnabled="False"/>
+            <Label Content="Самолет" VerticalAlignment="Top" Margin="10,60,10,0" Grid.Column="1"/>
+            <TextBox Text="{Binding Id_plane.Id_plane}" Height="26" VerticalAlignment="Top" Margin="10,86,10,0" VerticalContentAlignment="Center" IsEnabled="False" Grid.Column="1"/>
+            <Label Content="Дата отправления" VerticalAlignment="Top" Margin="10,125,10,0"/>
+            <TextBox Text="{Binding Date_departure}" Height="26" VerticalAlignment="Top" Margin="10,151,10,0" VerticalContentAlignment="Center" IsEnabled="False" Grid.ColumnSpan="2"/>
+            <Label Content="Время отправления" VerticalAlignment="Top" Margin="10,188,10,0"/>
+            <TextBox Text="{Binding Time_departure}" Height="26" VerticalAlignment="Top" Margin="10,214,10,0" VerticalContentAlignment="Center" IsEnabled="False"/>
+            <Label Content="Время прибытия" VerticalAlignment="Top" Margin="10,188,10,0" Grid.Column="1"/>
+            <TextBox Text="{Binding Time_destination}" Height="26" VerticalAlignment="Top" Margin="10,214,10,0" VerticalContentAlignment="Center" IsEnabled="False" Grid.Column="1"/>
+        </Grid>
     </Grid>
 </UserControl>

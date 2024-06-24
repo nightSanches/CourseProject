@@ -21,7 +21,7 @@ namespace CourseProject.Context
         public static ObservableCollection<PassengersContext> AllPassengers(string Filter = "")
         {
             ObservableCollection<PassengersContext> allPassengers = new ObservableCollection<PassengersContext>();
-            //ObservableCollection<FlightsContext> allFlights = FlightsContext.AllFlights();
+            ObservableCollection<FlightsContext> allFlights = FlightsContext.AllFlights();
             SqlConnection connection;
             if (Filter == "")
             {
@@ -34,8 +34,8 @@ namespace CourseProject.Context
                         Surname = dataPassengers.GetString(1),
                         Name = dataPassengers.GetString(2),
                         Patronymic = dataPassengers.GetString(3),
-                        Passport = dataPassengers.GetString(4)
-                        //Id_flight = dataPassengers.IsDBNull(5) ? null : allFlights.Where(x => x.Id_flight == dataPassengers.GetInt32(5)).First()
+                        Passport = dataPassengers.GetString(4),
+                        Id_flight = dataPassengers.IsDBNull(5) ? null : allFlights.Where(x => x.Id_flight == dataPassengers.GetInt32(5)).First()
                     });
                 }
                 Connection.CloseConnection(connection);
@@ -52,7 +52,7 @@ namespace CourseProject.Context
                         Name = dataPassengers.GetString(2),
                         Patronymic = dataPassengers.GetString(3),
                         Passport = dataPassengers.GetString(4),
-                        //Id_flight = dataPassengers.IsDBNull(5) ? null : allFlights.Where(x => x.Id_flight == dataPassengers.GetInt32(5)).First()
+                        Id_flight = dataPassengers.IsDBNull(5) ? null : allFlights.Where(x => x.Id_flight == dataPassengers.GetInt32(5)).First()
                     });
                 }
                 Connection.CloseConnection(connection);
@@ -103,7 +103,7 @@ namespace CourseProject.Context
             {
                 return new RelayCommand(obj =>
                 {
-                   // MainWindow.init.frame.Navigate(new View.Passengers.Add(this));
+                   MainWindow.init.frame.Navigate(new View.Passengers.Add(this));
                 });
             }
         }

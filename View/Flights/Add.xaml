@@ -8,7 +8,50 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Add">
 
-    <Grid>
-        
+    <Grid Background="White">
+        <Grid.Effect>
+            <DropShadowEffect Direction="270" ShadowDepth="2" BlurRadius="5" Opacity="0.5"/>
+        </Grid.Effect>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Место отправления:" VerticalAlignment="Top" Margin="10,10,10,10"/>
+            <TextBox Text="{Binding flights.Departure}" Height="26" VerticalAlignment="Top" Margin="10,36,10,0" VerticalContentAlignment="Center"/>
+            <Label Content="Место назначения:" VerticalAlignment="Top" Margin="10,10,10,10" Grid.Column="1"/>
+            <TextBox Text="{Binding flights.Destination}" Height="26" VerticalAlignment="Top" Margin="10,36,10,0" VerticalContentAlignment="Center" Grid.Column="1"/>
+            <Label Content="Авиакомпания:" VerticalAlignment="Top" Margin="10,67,10,0" Grid.ColumnSpan="2"/>
+            <ComboBox x:Name="cbAirline"
+              ItemsSource="{Binding airline.Airlines}"
+              DisplayMemberPath="Name"
+              SelectedValue="{Binding flights.Id_airline.Id_airline}"
+              SelectedValuePath="Id"
+              Height="25" VerticalAlignment="Top" Margin="10,93,10,0" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+            <Label Content="Самолет:" VerticalAlignment="Top" Margin="10,123,10,0" Grid.ColumnSpan="2"/>
+            <ComboBox x:Name="cbPlane"
+              ItemsSource="{Binding plane.Planes}"
+              DisplayMemberPath="Name"
+              SelectedValue="{Binding flights.Id_plane.Id_plane}"
+              SelectedValuePath="Id"
+              Height="25" VerticalAlignment="Top" Margin="10,154,10,0" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+
+            <Button Content="Отмена" Width="100" Height="25" Margin="0,0,120,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Command="{Binding flights.OnCancel}">
+                <Button.Effect>
+                    <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
+                </Button.Effect>
+            </Button>
+            <Button Content="Сохранить" Width="100" Height="25" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Command="{Binding flights.OnSave}">
+                <Button.Effect>
+                    <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
+                </Button.Effect>
+            </Button>
+            <Label Content="Дата отправления:" VerticalAlignment="Top" Margin="10,199,10,0"/>
+            <TextBox Text="{Binding flights.Date_departure}" Height="26" VerticalAlignment="Top" Margin="10,225,10,0" VerticalContentAlignment="Center"/>
+            <Label Content="Время отправления:" VerticalAlignment="Top" Margin="10,266,10,0"/>
+            <TextBox Text="{Binding flights.Time_departure}" Height="26" VerticalAlignment="Top" Margin="10,292,10,0" VerticalContentAlignment="Center"/>
+            <Label Content="Время прибытия:" VerticalAlignment="Top" Margin="10,266,10,0" Grid.Column="1"/>
+            <TextBox Text="{Binding flights.Time_destination}" Height="26" VerticalAlignment="Top" Margin="10,292,10,0" VerticalContentAlignment="Center" Grid.Column="1"/>
+        </Grid>
     </Grid>
 </Page>

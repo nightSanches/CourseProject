@@ -4,11 +4,29 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CourseProject.View.Flights"
+      xmlns:element="clr-namespace:CourseProject.View.Flights.Items"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Main">
 
     <Grid>
-        
+        <Label Content="Поиск:" Margin="10,0,10,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbName" Margin="10,30,10,0" Height="25" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" VerticalAlignment="Top" Padding="10,0" KeyUp="SearchBaggage">
+            <TextBox.Effect>
+                <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+            </TextBox.Effect>
+        </TextBox>
+        <ListView ItemsSource="{Binding Flights}" HorizontalContentAlignment="Stretch" Margin="0,60,0,40" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <element:Item DataContext="{Binding}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Content="Добавить" Width="100" Height="25" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Command="{Binding NewFlights}">
+            <Button.Effect>
+                <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
+            </Button.Effect>
+        </Button>
     </Grid>
 </Page>

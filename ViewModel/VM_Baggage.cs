@@ -19,7 +19,7 @@ namespace CourseProject.ViewModel
                 {
                     Context.BaggageContext newModel = new Context.BaggageContext(true);
                     Baggage.Add(newModel);
-                    //MainWindow.init.frame.Navigate(new View.Baggage.Add(newModel));
+                    MainWindow.init.frame.Navigate(new View.Baggage.Add(newModel));
                 });
             }
         }
