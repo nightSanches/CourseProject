@@ -41,7 +41,8 @@ namespace CourseProject.Context
             }
             else
             {
-                SqlDataReader dataBaggage = Connection.Query("SELECT * FROM baggage WHERE Id_passenger LIKE '%" + Filter + "%'", out connection);
+                SqlDataReader dataBaggage = Connection.Query("SELECT * FROM baggage JOIN passengers ON baggage.Id_passenger = passengers.Id_passenger WHERE " +
+                    "passengers.Surname LIKE '%" + Filter +"%' OR passengers.Name LIKE '%" + Filter + "%' OR passengers.Patronymic LIKE '%" + Filter +"%'", out connection);
                 while (dataBaggage.Read())
                 {
                     allBaggage.Add(new BaggageContext()

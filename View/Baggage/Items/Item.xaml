@@ -29,7 +29,15 @@
             <Label Content="Вес:" VerticalAlignment="Top" Margin="10,8,10,0" Grid.Column="1"/>
             <TextBox Text="{Binding Weight}" Height="26" VerticalAlignment="Top" Margin="10,34,10,0" VerticalContentAlignment="Center" IsEnabled="False" Grid.Column="1"/>
             <Label Content="Пассажир:" VerticalAlignment="Top" Margin="10,60,10,0"/>
-            <TextBox Text="{Binding Id_passenger.Surname}" Height="26" VerticalAlignment="Top" Margin="10,86,10,0" VerticalContentAlignment="Center" IsEnabled="False"/>
+            <TextBox Height="26" VerticalAlignment="Top" Margin="10,86,10,0" VerticalContentAlignment="Center" IsEnabled="False">
+                <TextBox.Text>
+                    <MultiBinding StringFormat="{}{0} {1} {2}">
+                        <Binding Path="Id_passenger.Surname" />
+                        <Binding Path="Id_passenger.Name" />
+                        <Binding Path="Id_passenger.Patronymic" />
+                    </MultiBinding>
+                </TextBox.Text>
+            </TextBox>
         </Grid>
     </Grid>
 </UserControl>

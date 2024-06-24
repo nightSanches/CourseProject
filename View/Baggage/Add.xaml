@@ -24,8 +24,8 @@
             <Label Content="Пассажир:" VerticalAlignment="Top" Margin="10,67,0,0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="780"/>
             <ComboBox x:Name="cbCategory"
                   ItemsSource="{Binding passengers.Passengers}"
-                  SelectedValue="{Binding baggage.Passengers.Id_passenger}"
-                  SelectedValuePath="Id"
+                  SelectedValue="{Binding baggage.Id_passenger.Id_passenger}"
+                  SelectedValuePath="Id_passenger"
                   Height="25" VerticalAlignment="Top" Margin="10,93,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="780">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
