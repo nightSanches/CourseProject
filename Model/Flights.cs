@@ -69,8 +69,8 @@ namespace CourseProject.Model
         }
 
         // Дата отправления
-        private DateTime date_departure;
-        public DateTime Date_departure
+        private string date_departure;
+        public string Date_departure
         {
             get { return date_departure; }
             set

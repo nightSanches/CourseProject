@@ -17,22 +17,33 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Фамилия:" VerticalAlignment="Top" Margin="10,10,154,0"/>
-            <TextBox Text="{Binding passengers.Surname}" Height="26" VerticalAlignment="Top" Margin="10,36,154,0" VerticalContentAlignment="Center"/>
-            <Label Content="Имя:" VerticalAlignment="Top" Margin="266,10,298,0" Grid.ColumnSpan="2"/>
-            <TextBox Text="{Binding passengers.Name}" Height="26" VerticalAlignment="Top" Margin="266,36,298,0" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
-            <Label Content="Отчество:" VerticalAlignment="Top" Margin="126,10,10,0" Grid.Column="1"/>
-            <TextBox Text="{Binding passengers.Patronymic}" Height="26" VerticalAlignment="Top" Margin="126,36,10,0" VerticalContentAlignment="Center" Grid.Column="1"/>
-            <Label Content="Пасспорт:" VerticalAlignment="Top" Margin="10,73,10,0"/>
-            <TextBox Text="{Binding passengers.Passport}" Height="26" VerticalAlignment="Top" Margin="10,99,10,0" VerticalContentAlignment="Center"/>
+            <Label Content="Фамилия:" VerticalAlignment="Top" Margin="10,10,0,0" HorizontalAlignment="Left" Width="236"/>
+            <TextBox Text="{Binding passengers.Surname}" Height="26" VerticalAlignment="Top" Margin="10,36,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="236"/>
+            <Label Content="Имя:" VerticalAlignment="Top" Margin="266,10,0,0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="236"/>
+            <TextBox Text="{Binding passengers.Name}" Height="26" VerticalAlignment="Top" Margin="266,36,0,0" VerticalContentAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="236"/>
+            <Label Content="Отчество:" VerticalAlignment="Top" Margin="126,10,0,0" Grid.Column="1" HorizontalAlignment="Left" Width="264"/>
+            <TextBox Text="{Binding passengers.Patronymic}" Height="26" VerticalAlignment="Top" Margin="126,36,0,0" VerticalContentAlignment="Center" Grid.Column="1" HorizontalAlignment="Left" Width="264"/>
+            <Label Content="Пасспорт:" VerticalAlignment="Top" Margin="10,73,0,0" HorizontalAlignment="Left" Width="380"/>
+            <TextBox Text="{Binding passengers.Passport}" Height="26" VerticalAlignment="Top" Margin="10,99,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="380"/>
 
-            <Label Content="Рейс:" VerticalAlignment="Top" Margin="10,130,10,0" Grid.ColumnSpan="2"/>
+            <Label Content="Рейс:" VerticalAlignment="Top" Margin="10,130,0,0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="780"/>
             <ComboBox x:Name="cbCategory"
               ItemsSource="{Binding flights.Flights}"
-              DisplayMemberPath="Name"
               SelectedValue="{Binding passengers.Id_flight.Id_flight}"
-              SelectedValuePath="Id"
-              Height="25" VerticalAlignment="Top" Margin="10,156,10,0" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+              SelectedValuePath="Id_flight"
+              Height="25" VerticalAlignment="Top" Margin="10,156,0,0" VerticalContentAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="780">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <TextBlock Text="{Binding Id_flight}"/>
+                            <TextBlock Text="  "/>
+                            <TextBlock Text="{Binding Departure}"/>
+                            <TextBlock Text=" -> "/>
+                            <TextBlock Text="{Binding Destination}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
             <Button Content="Отмена" Width="100" Height="25" Margin="0,0,120,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Command="{Binding passengers.OnCancel}">
                 <Button.Effect>
                     <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>

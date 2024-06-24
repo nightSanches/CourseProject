@@ -31,7 +31,7 @@ namespace CourseProject.View.Planes
             this.DataContext = new VM_Planes();
         }
 
-        private void SearchA(object sender, KeyEventArgs e)
+        private void Search(object sender, KeyEventArgs e)
         {
             AirlinesFilter();
         }

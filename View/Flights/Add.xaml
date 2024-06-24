@@ -24,16 +24,16 @@
             <Label Content="Авиакомпания:" VerticalAlignment="Top" Margin="10,67,10,0" Grid.ColumnSpan="2"/>
             <ComboBox x:Name="cbAirline"
               ItemsSource="{Binding airline.Airlines}"
-              DisplayMemberPath="Name"
+              DisplayMemberPath="Airline_name"
               SelectedValue="{Binding flights.Id_airline.Id_airline}"
-              SelectedValuePath="Id"
+              SelectedValuePath="Id_airline"
               Height="25" VerticalAlignment="Top" Margin="10,93,10,0" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
             <Label Content="Самолет:" VerticalAlignment="Top" Margin="10,123,10,0" Grid.ColumnSpan="2"/>
             <ComboBox x:Name="cbPlane"
               ItemsSource="{Binding plane.Planes}"
-              DisplayMemberPath="Name"
+              DisplayMemberPath="Id_plane"
               SelectedValue="{Binding flights.Id_plane.Id_plane}"
-              SelectedValuePath="Id"
+              SelectedValuePath="Id_plane"
               Height="25" VerticalAlignment="Top" Margin="10,154,10,0" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
 
             <Button Content="Отмена" Width="100" Height="25" Margin="0,0,120,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Command="{Binding flights.OnCancel}">

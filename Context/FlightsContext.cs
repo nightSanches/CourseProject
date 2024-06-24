@@ -35,10 +35,10 @@ namespace CourseProject.Context
                     {
                         Id_flight = dataFlights.GetInt32(0),
                         Id_airline = dataFlights.IsDBNull(1) ? null : allAirlines.Where(x => x.Id_airline == dataFlights.GetInt32(1)).First(),
-                        Id_plane = dataFlights.IsDBNull(2) ? null : allPlanes.Where(x => x.Id_plane == dataFlights.GetInt32(1)).First(),
+                        Id_plane = dataFlights.IsDBNull(2) ? null : allPlanes.Where(x => x.Id_plane == dataFlights.GetInt32(2)).First(),
                         Departure = dataFlights.GetString(3),
                         Destination = dataFlights.GetString(4),
-                        Date_departure = dataFlights.GetDateTime(5),
+                        Date_departure = dataFlights.GetString(5),
                         Time_departure = dataFlights.GetString(6),
                         Time_destination = dataFlights.GetString(7)
                     });
@@ -54,10 +54,10 @@ namespace CourseProject.Context
                     {
                         Id_flight = dataFlights.GetInt32(0),
                         Id_airline = dataFlights.IsDBNull(1) ? null : allAirlines.Where(x => x.Id_airline == dataFlights.GetInt32(1)).First(),
-                        Id_plane = dataFlights.IsDBNull(2) ? null : allPlanes.Where(x => x.Id_plane == dataFlights.GetInt32(1)).First(),
+                        Id_plane = dataFlights.IsDBNull(2) ? null : allPlanes.Where(x => x.Id_plane == dataFlights.GetInt32(2)).First(),
                         Departure = dataFlights.GetString(3),
                         Destination = dataFlights.GetString(4),
-                        Date_departure = dataFlights.GetDateTime(5),
+                        Date_departure = dataFlights.GetString(5),
                         Time_departure = dataFlights.GetString(6),
                         Time_destination = dataFlights.GetString(7)
                     });
@@ -77,7 +77,7 @@ namespace CourseProject.Context
                     "Departure, Destination, Date_departure, Time_departure, Time_destination) " +
                     "OUTPUT Inserted.Id_flight " +
                     $"VALUES (" +
-                    $"{this.Departure}, {this.Destination}, '{this.Date_departure}', {this.Time_departure}, {this.Time_destination})", out connection);
+                    $"'{this.Departure}', '{this.Destination}', '{this.Date_departure}', '{this.Time_departure}', '{this.Time_destination}')", out connection);
                 dataFlights.Read();
                 this.Id_flight = dataFlights.GetInt32(0);
             }
@@ -87,11 +87,11 @@ namespace CourseProject.Context
                     "SET " +
                     $"Id_airline = {this.Id_airline.Id_airline}, " +
                     $"Id_plane = {this.Id_plane.Id_plane}, " +
-                    $"Departure = {this.Departure}, " +
-                    $"Destination = {this.Destination}, " +
+                    $"Departure = '{this.Departure}', " +
+                    $"Destination = '{this.Destination}', " +
                     $"Date_departure = '{this.Date_departure}', " +
-                    $"Time_departure = {this.Time_departure}, " +
-                    $"Time_destination = {this.Time_destination} " +
+                    $"Time_departure = '{this.Time_departure}', " +
+                    $"Time_destination = '{this.Time_destination}' " +
                     $"WHERE " +
                     $"Id_flight = {this.Id_flight}", out connection);
             }

@@ -41,18 +41,18 @@ namespace CourseProject
 
         private void OpenPlanes(object sender, RoutedEventArgs e)
         {
-            //PlanesMain = new View.Planes.Main();
+            PlanesMain = new View.Planes.Main();
             frame.Navigate(PlanesMain);
         }
 
         private void OpenFlights(object sender, RoutedEventArgs e)
         {
-            //FlightsMain = new View.Flights.Main();
+            FlightsMain = new View.Flights.Main();
             frame.Navigate(FlightsMain);
         }
         private void OpenPassengers(object sender, RoutedEventArgs e)
         {
-            //PassengersMain = new View.Passengers.Main();
+            PassengersMain = new View.Passengers.Main();
             frame.Navigate(PassengersMain);
         }
 
