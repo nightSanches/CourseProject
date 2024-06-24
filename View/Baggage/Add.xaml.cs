@@ -33,12 +33,12 @@ namespace CourseProject.View.Baggage
         {
             if (string.IsNullOrEmpty(Weight.Text) || !Classes.Common.CheckRegex.Match("^[0-9]+$", Weight.Text))
             {
-                MessageBox.Show("Неправильно указан Вес!");
+                MessageBox.Show("Неправильно указан Вес!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
             }
             else if (cbPassenger.SelectedItem == null)
             {
-                MessageBox.Show("Не выбран Пассажир!");
+                MessageBox.Show("Не выбран Пассажир!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
             }
             else

@@ -33,12 +33,12 @@ namespace CourseProject.View.Airlines
         {
             if (string.IsNullOrEmpty(Airline.Text))
             {
-                MessageBox.Show("Не указано Название авиакомпании!");
+                MessageBox.Show("Не указано Название авиакомпании!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
             }
             else if (string.IsNullOrEmpty(Country.Text))
             {
-                MessageBox.Show("Не указана Страна!");
+                MessageBox.Show("Не указана Страна!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
             }
             else

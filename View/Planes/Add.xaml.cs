@@ -32,17 +32,17 @@ namespace CourseProject.View.Planes
         {
             if (string.IsNullOrEmpty(tbYear.Text) || !Classes.Common.CheckRegex.Match("^[0-9]{4}$", tbYear.Text))
             {
-                MessageBox.Show("Неправильно указан Год выпуска!");
+                MessageBox.Show("Неправильно указан Год выпуска!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
             }
             else if (string.IsNullOrEmpty(tbCarry.Text) || !Classes.Common.CheckRegex.Match("^[0-9]+$", tbYear.Text))
             {
-                MessageBox.Show("Неправильно указана Грузоподъемность!");
+                MessageBox.Show("Неправильно указана Грузоподъемность!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
             }
             else if (string.IsNullOrEmpty(tbSeats.Text) || !Classes.Common.CheckRegex.Match("^[0-9]+$", tbYear.Text))
             {
-                MessageBox.Show("Неправильно указано Количество пассажирских мест!");
+                MessageBox.Show("Неправильно указано Количество пассажирских мест!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
             }
             else

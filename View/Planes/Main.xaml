@@ -10,6 +10,12 @@
       Title="Main">
 
     <Grid>
+        <Button Content="Экспорт" Width="100" Height="25" Margin="0,30,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Command="{Binding Report}">
+            <Button.Effect>
+                <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
+            </Button.Effect>
+        </Button>
+        
         <ListView ItemsSource="{Binding Planes}" HorizontalContentAlignment="Stretch" Margin="0,60,0,40" >
             <ListView.ItemTemplate>
                 <DataTemplate>

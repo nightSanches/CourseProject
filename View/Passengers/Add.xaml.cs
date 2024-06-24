@@ -33,27 +33,27 @@ namespace CourseProject.View.Passengers
         {
             if (string.IsNullOrEmpty(Surname.Text) || !Classes.Common.CheckRegex.Match("^[а-яА-Я]+$", Surname.Text))
             {
-                MessageBox.Show("Неправильно указана Фамилия!");
+                MessageBox.Show("Неправильно указана Фамилия!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
             }
             else if (string.IsNullOrEmpty(Name.Text) || !Classes.Common.CheckRegex.Match("^[а-яА-Я]+$", Name.Text))
             {
-                MessageBox.Show("Неправильно указано Имя!");
+                MessageBox.Show("Неправильно указано Имя!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
             }
             else if (string.IsNullOrEmpty(Patronymic.Text) || !Classes.Common.CheckRegex.Match("^[а-яА-Я]+$", Patronymic.Text))
             {
-                MessageBox.Show("Неправильно указано Отчество!");
+                MessageBox.Show("Неправильно указано Отчество!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
             }
             else if (string.IsNullOrEmpty(Passport.Text) || !Classes.Common.CheckRegex.Match(@"^\d{4}\s\d{6}$", Passport.Text))
             {
-                MessageBox.Show("Неправильно указан Паспорт (0123 456789)!");
+                MessageBox.Show("Неправильно указан Паспорт (0123 456789)!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
             }
             else if (Flight.SelectedItem == null)
             {
-                MessageBox.Show("Не выбран Рейс!");
+                MessageBox.Show("Не выбран Рейс!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
             }
             else

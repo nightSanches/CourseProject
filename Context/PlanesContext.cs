@@ -40,6 +40,8 @@ namespace CourseProject.Context
             return allPlanes;
         }
 
+
+
         public void Save(bool New = false)
         {
             SqlConnection connection;
@@ -78,7 +80,16 @@ namespace CourseProject.Context
                 $"Id_plane = {this.Id_plane}", out connection);
             Connection.CloseConnection(connection);
         }
-
+        public RelayCommand Report
+        {
+            get
+            {
+                return new RelayCommand(obj =>
+                {
+                    
+                });
+            }
+        }
         public RelayCommand OnEdit
         {
             get
