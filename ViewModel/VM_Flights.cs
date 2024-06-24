@@ -24,8 +24,8 @@ namespace CourseProject.ViewModel
             }
         }
 
-        public VM_Flights(string Filter) =>
-            Flights = Context.FlightsContext.AllFlights(Filter);
+        public VM_Flights(string Filter1, string Filter2) =>
+            Flights = Context.FlightsContext.AllFlights(Filter1, Filter2);
 
         public event PropertyChangedEventHandler PropertyChanged;
 

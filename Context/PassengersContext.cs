@@ -80,7 +80,8 @@ namespace CourseProject.Context
                     $"Surname = '{this.Surname}', " +
                     $"Name = '{this.Name}', " +
                     $"Patronymic = '{this.Patronymic}', " +
-                    $"Passport = '{this.Passport}' " +
+                    $"Passport = '{this.Passport}'," +
+                    $"Id_flight = {this.Id_flight.Id_flight} " +
                     $"WHERE " +
                     $"Id_passenger = {this.Id_passenger}", out connection);
             }

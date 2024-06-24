@@ -26,6 +26,17 @@ namespace CourseProject.View.Airlines
             this.DataContext = new VM_Airlines(tbName.Text);
             init = this;
         }
+        private void PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            foreach (char c in e.Text)
+            {
+                if (!char.IsLetter(c))
+                {
+                    e.Handled = true;
+                    break;
+                }
+            }
+        }
         public void ReloadPage()
         {
             this.DataContext = new VM_Airlines(tbName.Text);

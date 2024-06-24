@@ -26,6 +26,17 @@ namespace CourseProject.View.Passengers
             this.DataContext = new VM_Passengers(tbName.Text);
             init = this;
         }
+        private void PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            foreach (char c in e.Text)
+            {
+                if (!char.IsLetter(c))
+                {
+                    e.Handled = true;
+                    break;
+                }
+            }
+        }
         private void SearchPassengers(object sender, KeyEventArgs e)
         {
             Filter();
@@ -39,5 +50,6 @@ namespace CourseProject.View.Passengers
         {
             this.DataContext = new VM_Passengers(tbName.Text);
         }
+
     }
 }

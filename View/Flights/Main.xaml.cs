@@ -23,21 +23,33 @@ namespace CourseProject.View.Flights
         public Main()
         {
             InitializeComponent();
-            this.DataContext = new VM_Flights(tbName.Text);
+            this.DataContext = new VM_Flights(tbName.Text, tbName_Копировать.Text);
             init = this;
         }
 
-        private void SearchBaggage(object sender, KeyEventArgs e)
+        private void PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            foreach (char c in e.Text)
+            {
+                if (!char.IsLetter(c))
+                {
+                    e.Handled = true;
+                    break;
+                }
+            }
+        }
+
+        private void Search(object sender, KeyEventArgs e)
         {
             Filter();
         }
         public void ReloadPage()
         {
-            this.DataContext = new VM_Flights(tbName.Text);
+            this.DataContext = new VM_Flights(tbName.Text, tbName_Копировать.Text);
         }
         public void Filter()
         {
-            this.DataContext = new VM_Flights(tbName.Text);
+            this.DataContext = new VM_Flights(tbName.Text, tbName_Копировать.Text);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace CourseProject.View.Passengers
             DataContext = new
             {
                 passengers = Context,
-                flights = new ViewModel.VM_Flights("")
+                flights = new ViewModel.VM_Flights("", "")
             };
         }
     }

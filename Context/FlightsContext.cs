@@ -20,13 +20,13 @@ namespace CourseProject.Context
             Id_plane = new Planes();
         }
 
-        public static ObservableCollection<FlightsContext> AllFlights(string Filter = "")
+        public static ObservableCollection<FlightsContext> AllFlights(string Filter1 = "", string Filter2 = "")
         {
             ObservableCollection<FlightsContext> allFlights = new ObservableCollection<FlightsContext>();
             ObservableCollection<AirlinesContext> allAirlines = AirlinesContext.AllAirlines();
             ObservableCollection<PlanesContext> allPlanes = PlanesContext.AllPlanes();
             SqlConnection connection;
-            if (Filter == "")
+            if (Filter1 == "" && Filter2 == "")
             {
                 SqlDataReader dataFlights = Connection.Query("SELECT * FROM flights", out connection);
                 while (dataFlights.Read())
@@ -45,9 +45,47 @@ namespace CourseProject.Context
                 }
                 Connection.CloseConnection(connection);
             }
-            else
+            else if(Filter1 != "" && Filter2 == "")
             {
-                SqlDataReader dataFlights = Connection.Query("SELECT * FROM flights WHERE Destination LIKE '%" + Filter + "%'", out connection);
+                SqlDataReader dataFlights = Connection.Query("SELECT * FROM flights WHERE Departure LIKE '%" + Filter1 + "%'", out connection);
+                while (dataFlights.Read())
+                {
+                    allFlights.Add(new FlightsContext()
+                    {
+                        Id_flight = dataFlights.GetInt32(0),
+                        Id_airline = dataFlights.IsDBNull(1) ? null : allAirlines.Where(x => x.Id_airline == dataFlights.GetInt32(1)).First(),
+                        Id_plane = dataFlights.IsDBNull(2) ? null : allPlanes.Where(x => x.Id_plane == dataFlights.GetInt32(2)).First(),
+                        Departure = dataFlights.GetString(3),
+                        Destination = dataFlights.GetString(4),
+                        Date_departure = dataFlights.GetString(5),
+                        Time_departure = dataFlights.GetString(6),
+                        Time_destination = dataFlights.GetString(7)
+                    });
+                }
+                Connection.CloseConnection(connection);
+            }
+            else if(Filter1 == "" && Filter2 != "")
+            {
+                SqlDataReader dataFlights = Connection.Query("SELECT * FROM flights WHERE Destination LIKE '%" + Filter2 + "%'", out connection);
+                while (dataFlights.Read())
+                {
+                    allFlights.Add(new FlightsContext()
+                    {
+                        Id_flight = dataFlights.GetInt32(0),
+                        Id_airline = dataFlights.IsDBNull(1) ? null : allAirlines.Where(x => x.Id_airline == dataFlights.GetInt32(1)).First(),
+                        Id_plane = dataFlights.IsDBNull(2) ? null : allPlanes.Where(x => x.Id_plane == dataFlights.GetInt32(2)).First(),
+                        Departure = dataFlights.GetString(3),
+                        Destination = dataFlights.GetString(4),
+                        Date_departure = dataFlights.GetString(5),
+                        Time_departure = dataFlights.GetString(6),
+                        Time_destination = dataFlights.GetString(7)
+                    });
+                }
+                Connection.CloseConnection(connection);
+            }
+            else if(Filter1 != "" && Filter2 !="")
+            {
+                SqlDataReader dataFlights = Connection.Query("SELECT * FROM flights WHERE Departure LIKE '%" + Filter1 + "%' AND Destination LIKE '%" + Filter2 + "%'", out connection);
                 while (dataFlights.Read())
                 {
                     allFlights.Add(new FlightsContext()

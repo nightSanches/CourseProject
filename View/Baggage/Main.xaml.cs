@@ -26,7 +26,17 @@ namespace CourseProject.View.Baggage
             this.DataContext = new VM_Baggage(tbName.Text);
             init = this;
         }
-
+        private void PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            foreach (char c in e.Text)
+            {
+                if (!char.IsLetter(c))
+                {
+                    e.Handled = true;
+                    break;
+                }
+            }
+        }
         private void SearchBaggage(object sender, KeyEventArgs e)
         {
             Filter();
