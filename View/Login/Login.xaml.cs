@@ -29,7 +29,8 @@ namespace CourseProject.View.Login
         {
             if (tbLogin.Text == "" || tbPassword.Password == "")
             {
-                MessageBox.Show("Введите логин и пароль");
+                labelError.Content = "Введите логин и пароль!";
+                labelError.Visibility = Visibility.Visible;
             }
             else if (tbLogin.Text != "" && tbPassword.Password != "")
             {
@@ -62,10 +63,21 @@ namespace CourseProject.View.Login
             }
             else
             {
-                MessageBox.Show("Неправильный логин или пароль!");
+                labelError.Content = "Неправильный логин или пароль!";
+                labelError.Visibility = Visibility.Visible;
             }
             data.Close();
             Connection.CloseConnection(connection);
+        }
+
+        private void TextChanged(object sender, TextChangedEventArgs e)
+        {
+            labelError.Visibility = Visibility.Hidden;
+        }
+
+        private void PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            labelError.Visibility = Visibility.Hidden;
         }
     }
 }

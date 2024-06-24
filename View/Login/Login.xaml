@@ -11,10 +11,11 @@
     <Grid Background="White">
         <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Height="229" Width="250">
             <Label Content="Логин:" HorizontalAlignment="Center" VerticalAlignment="Top" Width="214" Margin="0,15,0,0"/>
-            <TextBox x:Name="tbLogin" TextWrapping="Wrap" Width="214" Margin="18,46,18,145"/>
+            <TextBox TextChanged="TextChanged" x:Name="tbLogin" TextWrapping="Wrap" Width="214" Margin="18,46,18,145"/>
             <Label Content="Пароль:" HorizontalAlignment="Center" VerticalAlignment="Top" Width="214" Margin="0,84,0,0"/>
-            <PasswordBox PasswordChar="*" x:Name="tbPassword" Width="214" Margin="18,115,18,80"/>
+            <PasswordBox PasswordChanged="PasswordChanged" PasswordChar="*" x:Name="tbPassword" Width="214" Margin="18,115,18,80"/>
             <Button Click="LoginClick" Content="Войти" HorizontalAlignment="Center" Margin="0,181,0,0" VerticalAlignment="Top" Height="38" Width="134"/>
+            <Label x:Name="labelError" Visibility="Hidden" FontSize="10" HorizontalContentAlignment="Center" Content="Неправильный логин или пароль!" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Top" Width="214" Margin="0,153,0,0"/>
         </Grid>
     </Grid>
 </Page>
