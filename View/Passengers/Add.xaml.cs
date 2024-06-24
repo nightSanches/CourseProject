@@ -28,5 +28,39 @@ namespace CourseProject.View.Passengers
             };
             View.Menu.Main.init.ButtonsGrid.IsEnabled = false;
         }
+
+        private void SaveClick(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(Surname.Text) || !Classes.Common.CheckRegex.Match("^[а-яА-Я]+$", Surname.Text))
+            {
+                MessageBox.Show("Неправильно указана Фамилия!");
+                BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
+            }
+            else if (string.IsNullOrEmpty(Name.Text) || !Classes.Common.CheckRegex.Match("^[а-яА-Я]+$", Name.Text))
+            {
+                MessageBox.Show("Неправильно указано Имя!");
+                BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
+            }
+            else if (string.IsNullOrEmpty(Patronymic.Text) || !Classes.Common.CheckRegex.Match("^[а-яА-Я]+$", Patronymic.Text))
+            {
+                MessageBox.Show("Неправильно указано Отчество!");
+                BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
+            }
+            else if (string.IsNullOrEmpty(Passport.Text) || !Classes.Common.CheckRegex.Match(@"^\d{4}\s\d{6}$", Passport.Text))
+            {
+                MessageBox.Show("Неправильно указан Паспорт (0123 456789)!");
+                BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
+            }
+            else if (Flight.SelectedItem == null)
+            {
+                MessageBox.Show("Не выбран Рейс!");
+                BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
+            }
+            else
+            {
+                Binding binding = new Binding("passengers.OnSave");
+                ((Button)sender).SetBinding(Button.CommandProperty, binding);
+            }
+        }
     }
 }

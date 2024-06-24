@@ -20,9 +20,9 @@
             <Label Content="Код багажа:" VerticalAlignment="Top" Margin="10,10,0,0" HorizontalAlignment="Left" Width="380"/>
             <TextBox Text="{Binding baggage.Id_baggage}" Height="26" VerticalAlignment="Top" Margin="10,36,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="380" IsEnabled="False"/>
             <Label Content="Вес (кг):" VerticalAlignment="Top" Margin="10,67,0,0" HorizontalAlignment="Left" Width="380"/>
-            <TextBox Text="{Binding baggage.Weight}" Height="26" VerticalAlignment="Top" Margin="10,93,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="380"/>
+            <TextBox x:Name="Weight" Text="{Binding baggage.Weight}" Height="26" VerticalAlignment="Top" Margin="10,93,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="380"/>
             <Label Content="Пассажир:" VerticalAlignment="Top" Margin="10,138,0,0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="780"/>
-            <ComboBox x:Name="cbCategory"
+            <ComboBox x:Name="cbPassenger"
                   ItemsSource="{Binding passengers.Passengers}"
                   SelectedValue="{Binding baggage.Id_passenger.Id_passenger}"
                   SelectedValuePath="Id_passenger"
@@ -41,7 +41,7 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <Button Content="Сохранить" Width="100" Height="25" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Command="{Binding baggage.OnSave}">
+            <Button Click="SaveClick" Content="Сохранить" Width="100" Height="25" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Command="{Binding baggage.OnSave}">
                 <Button.Effect>
                     <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
                 </Button.Effect>

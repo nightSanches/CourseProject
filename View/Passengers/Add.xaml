@@ -18,16 +18,16 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Label Content="Фамилия:" VerticalAlignment="Top" Margin="10,10,0,0" HorizontalAlignment="Left" Width="380"/>
-            <TextBox Text="{Binding passengers.Surname}" Height="26" VerticalAlignment="Top" Margin="10,36,10,0" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="Surname" Text="{Binding passengers.Surname}" Height="26" VerticalAlignment="Top" Margin="10,36,10,0" VerticalContentAlignment="Center"/>
             <Label Content="Имя:" VerticalAlignment="Top" Margin="10,67,0,0" HorizontalAlignment="Left" Width="236"/>
-            <TextBox Text="{Binding passengers.Name}" Height="26" VerticalAlignment="Top" Margin="10,93,10,0" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="Name" Text="{Binding passengers.Name}" Height="26" VerticalAlignment="Top" Margin="10,93,10,0" VerticalContentAlignment="Center"/>
             <Label Content="Отчество:" VerticalAlignment="Top" Margin="10,124,0,0" HorizontalAlignment="Left" Width="264"/>
-            <TextBox Text="{Binding passengers.Patronymic}" Height="26" VerticalAlignment="Top" Margin="10,150,10,0" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="Patronymic" Text="{Binding passengers.Patronymic}" Height="26" VerticalAlignment="Top" Margin="10,150,10,0" VerticalContentAlignment="Center"/>
             <Label Content="Паспорт:" VerticalAlignment="Top" Margin="10,207,0,0" HorizontalAlignment="Left" Width="380"/>
-            <TextBox Grid.Column="0" Text="{Binding passengers.Passport}" Height="26" VerticalAlignment="Top" Margin="10,233,10,0" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="Passport" Grid.Column="0" Text="{Binding passengers.Passport}" Height="26" VerticalAlignment="Top" Margin="10,233,10,0" VerticalContentAlignment="Center"/>
 
             <Label Content="Рейс:" VerticalAlignment="Top" Margin="10,264,0,0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="780"/>
-            <ComboBox x:Name="cbCategory"
+            <ComboBox x:Name="Flight"
               ItemsSource="{Binding flights.Flights}"
               SelectedValue="{Binding passengers.Id_flight.Id_flight}"
               SelectedValuePath="Id_flight"
@@ -44,7 +44,7 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <Button Content="Сохранить" Width="100" Height="25" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Command="{Binding passengers.OnSave}">
+            <Button Click="SaveClick" Content="Сохранить" Width="100" Height="25" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Command="{Binding passengers.OnSave}">
                 <Button.Effect>
                     <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
                 </Button.Effect>

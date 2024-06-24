@@ -28,5 +28,24 @@ namespace CourseProject.View.Baggage
             };
             View.Menu.Main.init.ButtonsGrid.IsEnabled = false;
         }
+
+        private void SaveClick(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(Weight.Text) || !Classes.Common.CheckRegex.Match("^[0-9]+$", Weight.Text))
+            {
+                MessageBox.Show("Неправильно указан Вес!");
+                BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
+            }
+            else if (cbPassenger.SelectedItem == null)
+            {
+                MessageBox.Show("Не выбран Пассажир!");
+                BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
+            }
+            else
+            {
+                Binding binding = new Binding("baggage.OnSave");
+                ((Button)sender).SetBinding(Button.CommandProperty, binding);
+            }
+        }
     }
 }

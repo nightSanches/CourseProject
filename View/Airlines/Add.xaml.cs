@@ -8,6 +8,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
@@ -26,6 +27,25 @@ namespace CourseProject.View.Airlines
                 airline = Context
             };
             View.Menu.Main.init.ButtonsGrid.IsEnabled = false;
+        }
+
+        private void SaveClick(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(Airline.Text))
+            {
+                MessageBox.Show("Не указано Название авиакомпании!");
+                BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
+            }
+            else if (string.IsNullOrEmpty(Country.Text))
+            {
+                MessageBox.Show("Не указана Страна!");
+                BindingOperations.ClearBinding((Button)sender, Button.CommandProperty);
+            }
+            else
+            {
+                Binding binding = new Binding("airline.OnSave");
+                ((Button)sender).SetBinding(Button.CommandProperty, binding);
+            }
         }
     }
 }
