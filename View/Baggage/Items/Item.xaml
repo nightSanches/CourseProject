@@ -26,7 +26,7 @@
             </Grid.ColumnDefinitions>
             <Label Content="Код багажа:" VerticalAlignment="Top" Margin="10,8,10,0"/>
             <TextBox Text="{Binding Id_baggage}" Height="26" VerticalAlignment="Top" Margin="10,34,10,0" VerticalContentAlignment="Center" IsEnabled="False"/>
-            <Label Content="Вес (кг):" VerticalAlignment="Top" Margin="10,8,10,0" Grid.Column="1"/>
+            <Label Content="Вес (грамм):" VerticalAlignment="Top" Margin="10,8,10,0" Grid.Column="1"/>
             <TextBox Text="{Binding Weight}" Height="26" VerticalAlignment="Top" Margin="10,34,10,0" VerticalContentAlignment="Center" IsEnabled="False" Grid.Column="1"/>
             <Label Content="Пассажир:" VerticalAlignment="Top" Margin="10,60,10,0"/>
             <TextBox Height="26" VerticalAlignment="Top" Margin="10,86,10,0" VerticalContentAlignment="Center" IsEnabled="False">
