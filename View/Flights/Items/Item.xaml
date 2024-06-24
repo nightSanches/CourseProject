@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CourseProject.View.Flights.Items"
-             mc:Ignorable="d" HorizontalAlignment="Stretch" Height="250">
+             mc:Ignorable="d" HorizontalAlignment="Stretch" Height="240">
     <Grid Background="White">
         <Grid.Effect>
             <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
@@ -32,12 +32,12 @@
             <TextBox Text="{Binding Id_airline.Airline_name}" Height="26" VerticalAlignment="Top" Margin="10,86,10,0" VerticalContentAlignment="Center" IsEnabled="False"/>
             <Label Content="Самолет" VerticalAlignment="Top" Margin="10,60,10,0" Grid.Column="1"/>
             <TextBox Text="{Binding Id_plane.Id_plane}" Height="26" VerticalAlignment="Top" Margin="10,86,10,0" VerticalContentAlignment="Center" IsEnabled="False" Grid.Column="1"/>
-            <Label Content="Дата отправления" VerticalAlignment="Top" Margin="10,125,10,0"/>
-            <TextBox Text="{Binding Date_departure}" Height="26" VerticalAlignment="Top" Margin="10,151,10,0" VerticalContentAlignment="Center" IsEnabled="False" Grid.ColumnSpan="2"/>
-            <Label Content="Время отправления" VerticalAlignment="Top" Margin="10,188,10,0"/>
-            <TextBox Text="{Binding Time_departure}" Height="26" VerticalAlignment="Top" Margin="10,214,10,0" VerticalContentAlignment="Center" IsEnabled="False"/>
-            <Label Content="Время прибытия" VerticalAlignment="Top" Margin="10,188,10,0" Grid.Column="1"/>
-            <TextBox Text="{Binding Time_destination}" Height="26" VerticalAlignment="Top" Margin="10,214,10,0" VerticalContentAlignment="Center" IsEnabled="False" Grid.Column="1"/>
+            <Label Content="Дата отправления" VerticalAlignment="Top" Margin="10,119,10,0"/>
+            <TextBox Text="{Binding Date_departure}" Height="26" VerticalAlignment="Top" Margin="10,145,10,0" VerticalContentAlignment="Center" IsEnabled="False" Grid.ColumnSpan="2"/>
+            <Label Content="Время отправления" VerticalAlignment="Top" Margin="10,177,10,0"/>
+            <TextBox Text="{Binding Time_departure}" Height="26" VerticalAlignment="Top" Margin="10,203,10,0" VerticalContentAlignment="Center" IsEnabled="False"/>
+            <Label Content="Время прибытия" VerticalAlignment="Top" Margin="10,177,10,0" Grid.Column="1"/>
+            <TextBox Text="{Binding Time_destination}" Height="26" VerticalAlignment="Top" Margin="10,203,10,0" VerticalContentAlignment="Center" IsEnabled="False" Grid.Column="1"/>
         </Grid>
     </Grid>
 </UserControl>

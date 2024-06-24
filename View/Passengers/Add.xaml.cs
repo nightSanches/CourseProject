@@ -18,9 +18,14 @@ namespace CourseProject.View.Passengers
     /// </summary>
     public partial class Add : Page
     {
-        public Add()
+        public Add(object Context)
         {
             InitializeComponent();
+            DataContext = new
+            {
+                passengers = Context,
+                flights = new ViewModel.VM_Flights("")
+            };
         }
     }
 }

@@ -16,7 +16,7 @@ namespace CourseProject.View.Passengers.Items
     /// <summary>
     /// Логика взаимодействия для Item.xaml
     /// </summary>
-    public partial class Item : Page
+    public partial class Item : UserControl
     {
         public Item()
         {
