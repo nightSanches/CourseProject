@@ -16,19 +16,23 @@ using System.Windows.Shapes;
 
 namespace CourseProject
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        public class User
+        {
+            public string Login;
+            public string Password;
+            public string Role;
+        }
+        public User curUser = new User();
+        public View.Login.Login Login;
         public static MainWindow init;
-        public View.Menu.Main MainMenu;
         public MainWindow()
         {
             InitializeComponent();
             init = this;
-            MainMenu = new View.Menu.Main();
-            frame.Navigate(MainMenu);
+            Login = new View.Login.Login();
+            frame.Navigate(Login);
         }
     }
 }

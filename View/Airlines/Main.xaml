@@ -23,7 +23,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Content="Добавить" Width="100" Height="25" Margin="0,0,10,10" VerticalAlignment="Bottom"
+        <Button x:Name="BthAdd" Content="Добавить" Width="100" Height="25" Margin="0,0,10,10" VerticalAlignment="Bottom"
             HorizontalAlignment="Right" Command="{Binding NewAirlines}">
             <Button.Effect>
                 <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>

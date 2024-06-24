@@ -25,6 +25,14 @@ namespace CourseProject.View.Planes
             InitializeComponent();
             this.DataContext = new VM_Planes();
             init = this;
+            if (MainWindow.init.curUser.Role != "admin")
+            {
+                BthAdd.Visibility = Visibility.Hidden;
+            }
+            else if (MainWindow.init.curUser.Role == "admin")
+            {
+                BthAdd.Visibility = Visibility.Visible;
+            }
         }
         public void ReloadPage()
         {

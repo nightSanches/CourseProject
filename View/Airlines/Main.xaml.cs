@@ -1,4 +1,5 @@
-﻿using CourseProject.ViewModel;
+﻿using CourseProject.Model;
+using CourseProject.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,6 +26,14 @@ namespace CourseProject.View.Airlines
             InitializeComponent();
             this.DataContext = new VM_Airlines(tbName.Text);
             init = this;
+            if (MainWindow.init.curUser.Role != "admin")
+            {
+                BthAdd.Visibility = Visibility.Hidden;
+            }
+            else if (MainWindow.init.curUser.Role == "admin")
+            {
+                BthAdd.Visibility = Visibility.Visible;
+            }
         }
         private void PreviewTextInput(object sender, TextCompositionEventArgs e)
         {

@@ -9,12 +9,12 @@
         <Grid.Effect>
             <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
         </Grid.Effect>
-        <Button Height="25" Content="Изменить" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,35,0,0" Width="55" FontSize="10" Command="{Binding OnEdit}">
+        <Button x:Name="BthEdit" Height="25" Content="Изменить" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,35,0,0" Width="55" FontSize="10" Command="{Binding OnEdit}">
             <Button.Effect>
                 <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
             </Button.Effect>
         </Button>
-        <Button Height="25" Content="Удалить" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,65,0,0" Width="55" FontSize="10" Command="{Binding OnDelete}">
+        <Button x:Name="BthDelete" Height="25" Content="Удалить" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,65,0,0" Width="55" FontSize="10" Command="{Binding OnDelete}">
             <Button.Effect>
                 <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
             </Button.Effect>

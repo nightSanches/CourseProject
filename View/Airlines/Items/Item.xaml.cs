@@ -21,6 +21,16 @@ namespace CourseProject.View.Airlines.Items
         public Item()
         {
             InitializeComponent();
+            if (MainWindow.init.curUser.Role != "admin")
+            {
+                BthEdit.Visibility = Visibility.Hidden;
+                BthDelete.Visibility = Visibility.Hidden;
+            }
+            else if (MainWindow.init.curUser.Role == "admin")
+            {
+                BthEdit.Visibility = Visibility.Visible;
+                BthDelete.Visibility = Visibility.Visible;
+            }
         }
     }
 }

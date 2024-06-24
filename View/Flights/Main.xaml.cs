@@ -25,6 +25,14 @@ namespace CourseProject.View.Flights
             InitializeComponent();
             this.DataContext = new VM_Flights(tbName.Text, tbName_Копировать.Text);
             init = this;
+            if (MainWindow.init.curUser.Role != "admin")
+            {
+                BthAdd.Visibility = Visibility.Hidden;
+            }
+            else if (MainWindow.init.curUser.Role == "admin")
+            {
+                BthAdd.Visibility = Visibility.Visible;
+            }
         }
 
         private void PreviewTextInput(object sender, TextCompositionEventArgs e)

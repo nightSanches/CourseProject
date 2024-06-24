@@ -1,0 +1,20 @@
+﻿<Page x:Class="CourseProject.View.Login.Login"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CourseProject.View.Login"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Login">
+
+    <Grid Background="White">
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Height="229" Width="250">
+            <Label Content="Логин:" HorizontalAlignment="Center" VerticalAlignment="Top" Width="214" Margin="0,15,0,0"/>
+            <TextBox x:Name="tbLogin" TextWrapping="Wrap" Width="214" Margin="18,46,18,145"/>
+            <Label Content="Пароль:" HorizontalAlignment="Center" VerticalAlignment="Top" Width="214" Margin="0,84,0,0"/>
+            <TextBox x:Name="tbPassword" TextWrapping="Wrap" Width="214" Margin="18,115,18,80"/>
+            <Button Click="LoginClick" Content="Войти" HorizontalAlignment="Center" Margin="0,181,0,0" VerticalAlignment="Top" Height="38" Width="134"/>
+        </Grid>
+    </Grid>
+</Page>

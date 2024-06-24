@@ -28,6 +28,17 @@ namespace CourseProject.View.Menu
         {
             InitializeComponent();
             init = this;
+            labelRole.Content = "Добро пожаловать! Роль - " + MainWindow.init.curUser.Role;
+            if (MainWindow.init.curUser.Role != "admin")
+            {
+                passengers.Visibility = Visibility.Hidden;
+                baggage.Visibility = Visibility.Hidden;
+            }
+            else if (MainWindow.init.curUser.Role == "admin")
+            {
+                passengers.Visibility = Visibility.Visible;
+                baggage.Visibility = Visibility.Visible;
+            }
         }
 
         private void OpenAirlines(object sender, RoutedEventArgs e)
@@ -61,7 +72,8 @@ namespace CourseProject.View.Menu
 
         private void CloseMenu(object sender, RoutedEventArgs e)
         {
-            
+            MainWindow.init.curUser = new MainWindow.User();
+            MainWindow.init.frame.Navigate(new Login.Login());
         }
     }
 }
