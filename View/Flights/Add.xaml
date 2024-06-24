@@ -35,23 +35,23 @@
               SelectedValue="{Binding flights.Id_plane.Id_plane}"
               SelectedValuePath="Id_plane"
               Height="25" VerticalAlignment="Top" Margin="10,154,10,0" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
-
-            <Button Content="Отмена" Width="100" Height="25" Margin="0,0,120,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Command="{Binding flights.OnCancel}">
-                <Button.Effect>
-                    <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
-                </Button.Effect>
-            </Button>
-            <Button Content="Сохранить" Width="100" Height="25" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Command="{Binding flights.OnSave}">
-                <Button.Effect>
-                    <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
-                </Button.Effect>
-            </Button>
             <Label Content="Дата отправления:" VerticalAlignment="Top" Margin="10,199,10,0"/>
             <TextBox Text="{Binding flights.Date_departure}" Height="26" VerticalAlignment="Top" Margin="10,225,10,0" VerticalContentAlignment="Center"/>
             <Label Content="Время отправления:" VerticalAlignment="Top" Margin="10,266,10,0"/>
             <TextBox Text="{Binding flights.Time_departure}" Height="26" VerticalAlignment="Top" Margin="10,292,10,0" VerticalContentAlignment="Center"/>
             <Label Content="Время прибытия:" VerticalAlignment="Top" Margin="10,266,10,0" Grid.Column="1"/>
             <TextBox Text="{Binding flights.Time_destination}" Height="26" VerticalAlignment="Top" Margin="10,292,10,0" VerticalContentAlignment="Center" Grid.Column="1"/>
+
+            <Button Content="Сохранить" Width="100" Height="25" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Command="{Binding flights.OnSave}">
+                <Button.Effect>
+                    <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
+                </Button.Effect>
+            </Button>
+            <Button Content="Отмена" Width="100" Height="25" Margin="0,0,120,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Command="{Binding flights.OnCancel}">
+                <Button.Effect>
+                    <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
+                </Button.Effect>
+            </Button>
         </Grid>
     </Grid>
 </Page>

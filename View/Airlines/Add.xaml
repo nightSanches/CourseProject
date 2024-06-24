@@ -21,12 +21,12 @@
             <TextBox Text="{Binding airline.Airline_name}" Height="26" VerticalAlignment="Top" Margin="10,36,10,0" VerticalContentAlignment="Center"/>
             <Label Content="Страна:" VerticalAlignment="Top" Margin="10,80,10,0"/>
             <TextBox Text="{Binding airline.Country}" Height="26" VerticalAlignment="Top" Margin="10,106,10,0" VerticalContentAlignment="Center"/>
-            <Button Content="Отмена" Width="100" Height="25" Margin="0,0,120,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Command="{Binding airline.OnCancel}">
+            <Button Content="Сохранить" Width="100" Height="25" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Command="{Binding airline.OnSave}">
                 <Button.Effect>
                     <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
                 </Button.Effect>
             </Button>
-            <Button Content="Сохранить" Width="100" Height="25" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Command="{Binding airline.OnSave}">
+            <Button Content="Отмена" Width="100" Height="25" Margin="0,0,120,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Command="{Binding airline.OnCancel}">
                 <Button.Effect>
                     <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
                 </Button.Effect>

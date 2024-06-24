@@ -11,9 +11,14 @@ namespace CourseProject.Context
 {
     public class PlanesContext : Planes
     {
+        private bool isNew = false;
         public PlanesContext(bool save = false)
         {
-            if (save) Save(true);
+            if (save)
+            {
+                Save(true);
+                isNew = true;
+            }
         }
 
         public static ObservableCollection<PlanesContext> AllPlanes()
@@ -60,7 +65,9 @@ namespace CourseProject.Context
                     $"Id_plane = {this.Id_plane}", out connection);
             }
             Connection.CloseConnection(connection);
+            isNew = false;
             MainWindow.init.frame.Navigate(MainWindow.init.PlanesMain);
+            View.Planes.Main.init.ReloadPage();
         }
 
         public void Delete()
@@ -103,6 +110,28 @@ namespace CourseProject.Context
                 {
                     Delete();
                     (MainWindow.init.PlanesMain.DataContext as ViewModel.VM_Planes).Planes.Remove(this);
+                });
+            }
+        }
+        public RelayCommand OnCancel
+        {
+            get
+            {
+                return new RelayCommand(obj =>
+                {
+                    if (isNew)
+                    {
+                        Delete();
+                        (MainWindow.init.PlanesMain.DataContext as ViewModel.VM_Planes).Planes.Remove(this);
+                        MainWindow.init.frame.Navigate(MainWindow.init.PlanesMain);
+                        View.Planes.Main.init.ReloadPage();
+                    }
+                    else if (!isNew)
+                    {
+                        MainWindow.init.frame.Navigate(MainWindow.init.PlanesMain);
+                        View.Planes.Main.init.ReloadPage();
+                    }
+                    MainWindow.init.ButtonsGrid.IsEnabled = true;
                 });
             }
         }

@@ -13,9 +13,14 @@ namespace CourseProject.Context
 {
     public class FlightsContext : Flights
     {
+        private bool isNew = false;
         public FlightsContext(bool save = false)
         {
-            if (save) Save(true);
+            if (save)
+            {
+                Save(true);
+                isNew = true;
+            }
             Id_airline = new Airlines();
             Id_plane = new Planes();
         }
@@ -134,7 +139,9 @@ namespace CourseProject.Context
                     $"Id_flight = {this.Id_flight}", out connection);
             }
             Connection.CloseConnection(connection);
+            isNew = false;
             MainWindow.init.frame.Navigate(MainWindow.init.FlightsMain);
+            View.Flights.Main.init.ReloadPage();
         }
 
         public void Delete()
@@ -179,6 +186,28 @@ namespace CourseProject.Context
                 {
                     Delete();
                     (MainWindow.init.FlightsMain.DataContext as ViewModel.VM_Flights).Flights.Remove(this);
+                });
+            }
+        }
+        public RelayCommand OnCancel
+        {
+            get
+            {
+                return new RelayCommand(obj =>
+                {
+                    if (isNew)
+                    {
+                        Delete();
+                        (MainWindow.init.FlightsMain.DataContext as ViewModel.VM_Flights).Flights.Remove(this);
+                        MainWindow.init.frame.Navigate(MainWindow.init.FlightsMain);
+                        View.Flights.Main.init.ReloadPage();
+                    }
+                    else if (!isNew)
+                    {
+                        MainWindow.init.frame.Navigate(MainWindow.init.FlightsMain);
+                        View.Flights.Main.init.ReloadPage();
+                    }
+                    MainWindow.init.ButtonsGrid.IsEnabled = true;
                 });
             }
         }

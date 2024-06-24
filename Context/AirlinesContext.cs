@@ -84,6 +84,7 @@ namespace CourseProject.Context
             Connection.CloseConnection(connection);
             isNew = false;
             MainWindow.init.frame.Navigate(MainWindow.init.AirlinesMain);
+            View.Airlines.Main.init.ReloadPage();
         }
 
         public void Delete()
