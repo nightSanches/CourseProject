@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseProject.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +19,26 @@ namespace CourseProject.View.Planes
     /// </summary>
     public partial class Main : Page
     {
+        public static Main init;
         public Main()
         {
             InitializeComponent();
+            this.DataContext = new VM_Planes();
+            init = this;
+        }
+        public void ReloadPage()
+        {
+            this.DataContext = new VM_Planes();
+        }
+
+        private void SearchA(object sender, KeyEventArgs e)
+        {
+            AirlinesFilter();
+        }
+
+        public void AirlinesFilter()
+        {
+            this.DataContext = new VM_Planes();
         }
     }
 }

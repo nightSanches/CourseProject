@@ -18,9 +18,13 @@ namespace CourseProject.View.Planes
     /// </summary>
     public partial class Add : Page
     {
-        public Add()
+        public Add(object Context)
         {
             InitializeComponent();
+            DataContext = new
+            {
+                planes = Context
+            };
         }
     }
 }
