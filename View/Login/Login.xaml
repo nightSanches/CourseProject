@@ -8,14 +8,37 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Login">
 
-    <Grid Background="White">
-        <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Height="229" Width="250">
-            <Label Content="Логин:" HorizontalAlignment="Center" VerticalAlignment="Top" Width="214" Margin="0,15,0,0"/>
-            <TextBox TextChanged="TextChanged" x:Name="tbLogin" TextWrapping="Wrap" Width="214" Margin="18,46,18,145"/>
-            <Label Content="Пароль:" HorizontalAlignment="Center" VerticalAlignment="Top" Width="214" Margin="0,84,0,0"/>
-            <PasswordBox PasswordChanged="PasswordChanged" PasswordChar="*" x:Name="tbPassword" Width="214" Margin="18,115,18,80"/>
-            <Button Click="LoginClick" Content="Войти" HorizontalAlignment="Center" Margin="0,181,0,0" VerticalAlignment="Top" Height="38" Width="134"/>
-            <Label x:Name="labelError" Visibility="Hidden" FontSize="10" HorizontalContentAlignment="Center" Content="Неправильный логин или пароль!" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Top" Width="214" Margin="0,153,0,0"/>
-        </Grid>
+    <Grid Background="#35BDD0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80*"></RowDefinition>
+            <RowDefinition Height="200*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Source="/CourseProject;component/Images/icon.png" Height="100" VerticalAlignment="Center">
+            <Image.Effect>
+                <DropShadowEffect BlurRadius="3" Opacity="0.3" Color="#2F000000"></DropShadowEffect>
+            </Image.Effect>
+        </Image>
+        <Border VerticalAlignment="Top" Grid.Row="1" CornerRadius="20" HorizontalAlignment="Center" Height="229" Width="250" Background="White">
+            <Grid>
+                <Label FontSize="14" HorizontalContentAlignment="Center" Content="Логин" HorizontalAlignment="Center" VerticalAlignment="Top" Width="214" Margin="0,20,0,0"/>
+                <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Width="214" Margin="18,46,18,145" Height="30">
+                    <TextBox VerticalContentAlignment="Center" BorderThickness="0" Background="Transparent" TextChanged="TextChanged" x:Name="tbLogin" TextWrapping="Wrap"/>
+                </Border>
+                <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Width="214" Margin="18,115,18,80" Height="30">
+                    <PasswordBox VerticalContentAlignment="Center" BorderThickness="0" Background="Transparent" PasswordChanged="PasswordChanged" PasswordChar="*" x:Name="tbPassword"/>
+                </Border>
+                <Label FontSize="14"  HorizontalContentAlignment="Center" Content="Пароль" HorizontalAlignment="Center" VerticalAlignment="Top" Width="214" Margin="0,89,0,0"/>
+                <Label x:Name="labelError" Visibility="Hidden" FontSize="10" HorizontalContentAlignment="Center" Content="Неправильный логин или пароль!" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Top" Width="214" Margin="0,147,0,0"/>
+                <Border Background="#FF9B40" Height="38" Width="134" Margin="0,170,0,0" VerticalAlignment="Top" HorizontalAlignment="Center">
+                    <Button FontSize="14" BorderThickness="0" Background="Transparent" Foreground="White" Click="LoginClick" Content="Войти"></Button>
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="3" Opacity="0.5" Color="#2F000000"></DropShadowEffect>
+                    </Border.Effect>
+                </Border>
+            </Grid>
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="3" Opacity="0.5" Color="#2F000000"></DropShadowEffect>
+            </Border.Effect>
+        </Border>
     </Grid>
 </Page>

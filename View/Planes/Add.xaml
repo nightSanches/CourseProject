@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Add">
 
-    <Grid Background="White">
+    <Grid Background="#35BDD0">
         <Grid.Effect>
             <DropShadowEffect Direction="270" ShadowDepth="2" BlurRadius="5" Opacity="0.5"/>
         </Grid.Effect>
@@ -17,21 +17,31 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Код самолета:" VerticalAlignment="Top" Margin="10,10,10,10"/>
-            <TextBox Text="{Binding planes.Id_plane}" Height="26" VerticalAlignment="Top" Margin="10,36,10,0" VerticalContentAlignment="Center" IsEnabled="False"/>
-            <Label Content="Год выпуска:" VerticalAlignment="Top" Margin="10,80,10,0"/>
-            <TextBox x:Name="tbYear" Text="{Binding planes.Year_of_manufacture}" Height="26" VerticalAlignment="Top" Margin="10,106,10,0" VerticalContentAlignment="Center"/>
-            <Label Content="Грузоподъемность (тонн):" VerticalAlignment="Top" Margin="10,150,10,0"/>
-            <TextBox x:Name="tbCarry" Text="{Binding planes.Carrying}" Height="26" VerticalAlignment="Top" Margin="10,176,10,0" VerticalContentAlignment="Center"/>
-            <Label Content="Пассажирских мест:" VerticalAlignment="Top" Margin="10,214,10,0"/>
-            <TextBox x:Name="tbSeats" Text="{Binding planes.Seats}" Height="26" VerticalAlignment="Top" Margin="10,240,10,0" VerticalContentAlignment="Center"/>
-            
-            <Button Click="SaveClick" Content="Сохранить" Width="100" Height="25" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Command="{Binding planes.OnSave}">
+            <Label FontSize="14" Content="Код самолета:" VerticalAlignment="Top" Margin="10,10,10,10"/>
+            <Border Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Height="26" VerticalAlignment="Top" Margin="10,36,10,0">
+                <TextBox BorderThickness="0" Background="Transparent"  Text="{Binding planes.Id_plane}" VerticalContentAlignment="Center" IsEnabled="False"/>
+            </Border>
+            <Label FontSize="14" Content="Год выпуска:" VerticalAlignment="Top" Margin="10,80,10,0"/>
+            <Border Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Height="26" VerticalAlignment="Top" Margin="10,106,10,0">
+                <TextBox BorderThickness="0" Background="Transparent" x:Name="tbYear" Text="{Binding planes.Year_of_manufacture}" VerticalContentAlignment="Center"/>
+            </Border>
+            <Label FontSize="14" Content="Грузоподъемность (тонн):" VerticalAlignment="Top" Margin="10,150,10,0"/>
+            <Border Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Height="26" VerticalAlignment="Top" Margin="10,176,10,0">
+                <TextBox  BorderThickness="0" Background="Transparent" x:Name="tbCarry" Text="{Binding planes.Carrying}" VerticalContentAlignment="Center"/>
+                
+            </Border>
+            <Label FontSize="14" Content="Пассажирских мест:" VerticalAlignment="Top" Margin="10,220,10,0"/>
+            <Border Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Height="26" VerticalAlignment="Top" Margin="10,246,10,0">
+                <TextBox BorderThickness="0" Background="Transparent" x:Name="tbSeats" Text="{Binding planes.Seats}" VerticalContentAlignment="Center"/>
+                
+            </Border>
+
+            <Button  Background="#FF9B40" FontSize="14" Foreground="White" BorderThickness="0"  Click="SaveClick" Content="Сохранить" Width="100" Height="25" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Command="{Binding planes.OnSave}">
                 <Button.Effect>
                     <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
                 </Button.Effect>
             </Button>
-            <Button Content="Отмена" Width="100" Height="25" Margin="0,0,120,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Command="{Binding planes.OnCancel}">
+            <Button  Background="Red" FontSize="14" Foreground="White" BorderThickness="0"  Content="Отмена" Width="100" Height="25" Margin="0,0,120,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="1" Command="{Binding planes.OnCancel}">
                 <Button.Effect>
                     <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
                 </Button.Effect>

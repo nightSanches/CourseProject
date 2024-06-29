@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CourseProject"
         mc:Ignorable="d"
         Title="Система администрирования Аэропорта" Height="650" Width="900" MinHeight="650" MinWidth="900">
-    <Grid>
+    <Grid Background="#35BDD0">
         <Frame x:Name="frame" Grid.Row="1" NavigationUIVisibility="Hidden" Margin="5,5,5,5" Background="#FFFAFAFA"/>
     </Grid>
 </Window>
