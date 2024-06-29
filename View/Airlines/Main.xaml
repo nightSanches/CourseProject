@@ -11,12 +11,14 @@
 
     <Grid>
         <Label Content="Поиск:" Margin="10,0,491,0" VerticalAlignment="Top"/>
-        <TextBox PreviewTextInput="PreviewTextInput" x:Name="tbName" Margin="10,30,125,0" Height="25" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" VerticalAlignment="Top" Padding="10,0" KeyUp="SearchAirlines">
-            <TextBox.Effect>
-                <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
-            </TextBox.Effect>
-        </TextBox>
-        <Button Content="Экспорт" Width="100" Height="25" Margin="0,30,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Command="{Binding ReportAirlines}">
+        <Border Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Margin="10,30,125,0" Height="25" VerticalAlignment="Top">
+            <TextBox BorderThickness="0" Background="Transparent" PreviewTextInput="PreviewTextInput" x:Name="tbName" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" Padding="10,0" KeyUp="SearchAirlines">
+                <TextBox.Effect>
+                    <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                </TextBox.Effect>
+            </TextBox>
+        </Border>
+        <Button  Background="#FF9B40" FontSize="14" Foreground="White" BorderThickness="0" Content="Экспорт" Width="100" Height="25" Margin="0,30,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Command="{Binding ReportAirlines}">
             <Button.Effect>
                 <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
             </Button.Effect>
@@ -28,7 +30,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button x:Name="BthAdd" Content="Добавить" Width="100" Height="25" Margin="0,0,10,10" VerticalAlignment="Bottom"
+        <Button  Background="#FF9B40" FontSize="14" Foreground="White" BorderThickness="0" x:Name="BthAdd" Content="Добавить" Width="100" Height="25" Margin="0,0,10,10" VerticalAlignment="Bottom"
             HorizontalAlignment="Right" Command="{Binding NewAirlines}">
             <Button.Effect>
                 <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>

@@ -17,18 +17,22 @@
                 <ColumnDefinition Width="115"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Label Content="Пункт отправления:" Margin="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="362"/>
-            <TextBox PreviewTextInput="PreviewTextInput" x:Name="tbName" Margin="10,30,10,0" Height="25" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" VerticalAlignment="Top" Padding="10,0" KeyUp="Search">
-                <TextBox.Effect>
-                    <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
-                </TextBox.Effect>
-            </TextBox>
+            <Border Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Margin="10,30,10,0" Height="25" VerticalAlignment="Top">
+                <TextBox BorderThickness="0" Background="Transparent" PreviewTextInput="PreviewTextInput" x:Name="tbName" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" Padding="10,0" KeyUp="Search">
+                    <TextBox.Effect>
+                        <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                    </TextBox.Effect>
+                </TextBox>
+            </Border>
             <Label Grid.Column="1" Content="Пункт назначения:" Margin="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="362"/>
-            <TextBox Grid.Column="1" PreviewTextInput="PreviewTextInput" x:Name="tbName_Копировать" Margin="10,30,10,0" Height="25" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" VerticalAlignment="Top" Padding="10,0" KeyUp="Search">
-                <TextBox.Effect>
-                    <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
-                </TextBox.Effect>
-            </TextBox>
-            <Button Grid.Column="2" Content="Экспорт" Width="100" Height="25" Margin="0,30,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Command="{Binding ReportFlights}">
+            <Border Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Margin="10,30,10,0" Height="25" VerticalAlignment="Top" Grid.Column="1">
+                <TextBox BorderThickness="0" Background="Transparent" PreviewTextInput="PreviewTextInput" x:Name="tbName_Копировать" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" Padding="10,0" KeyUp="Search">
+                    <TextBox.Effect>
+                        <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                    </TextBox.Effect>
+                </TextBox>
+            </Border>
+            <Button  Background="#FF9B40" FontSize="14" Foreground="White" BorderThickness="0" Grid.Column="2" Content="Экспорт" Width="100" Height="25" Margin="0,30,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Command="{Binding ReportFlights}">
                 <Button.Effect>
                     <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
                 </Button.Effect>
@@ -42,7 +46,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button x:Name="BthAdd" Content="Добавить" Width="100" Height="25" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Command="{Binding NewFlights}">
+        <Button  Background="#FF9B40" FontSize="14" Foreground="White" BorderThickness="0" x:Name="BthAdd" Content="Добавить" Width="100" Height="25" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Command="{Binding NewFlights}">
             <Button.Effect>
                 <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
             </Button.Effect>
