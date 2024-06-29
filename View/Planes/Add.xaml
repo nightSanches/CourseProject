@@ -17,20 +17,20 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <Label FontSize="14" Content="Код самолета:" VerticalAlignment="Top" Margin="10,10,10,10"/>
+            <Label Content="Код самолета:" VerticalAlignment="Top" Margin="10,10,10,10"/>
             <Border Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Height="26" VerticalAlignment="Top" Margin="10,36,10,0">
                 <TextBox BorderThickness="0" Background="Transparent"  Text="{Binding planes.Id_plane}" VerticalContentAlignment="Center" IsEnabled="False"/>
             </Border>
-            <Label FontSize="14" Content="Год выпуска:" VerticalAlignment="Top" Margin="10,80,10,0"/>
+            <Label Content="Год выпуска:" VerticalAlignment="Top" Margin="10,80,10,0"/>
             <Border Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Height="26" VerticalAlignment="Top" Margin="10,106,10,0">
                 <TextBox BorderThickness="0" Background="Transparent" x:Name="tbYear" Text="{Binding planes.Year_of_manufacture}" VerticalContentAlignment="Center"/>
             </Border>
-            <Label FontSize="14" Content="Грузоподъемность (тонн):" VerticalAlignment="Top" Margin="10,150,10,0"/>
+            <Label Content="Грузоподъемность (тонн):" VerticalAlignment="Top" Margin="10,150,10,0"/>
             <Border Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Height="26" VerticalAlignment="Top" Margin="10,176,10,0">
                 <TextBox  BorderThickness="0" Background="Transparent" x:Name="tbCarry" Text="{Binding planes.Carrying}" VerticalContentAlignment="Center"/>
                 
             </Border>
-            <Label FontSize="14" Content="Пассажирских мест:" VerticalAlignment="Top" Margin="10,220,10,0"/>
+            <Label Content="Пассажирских мест:" VerticalAlignment="Top" Margin="10,220,10,0"/>
             <Border Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Height="26" VerticalAlignment="Top" Margin="10,246,10,0">
                 <TextBox BorderThickness="0" Background="Transparent" x:Name="tbSeats" Text="{Binding planes.Seats}" VerticalContentAlignment="Center"/>
                 

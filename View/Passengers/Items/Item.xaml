@@ -5,16 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CourseProject.View.Passengers.Items"
              mc:Ignorable="d" HorizontalAlignment="Stretch" Height="120">
-    <Grid Background="White">
+    <Grid Background="#35BDD0">
         <Grid.Effect>
             <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
         </Grid.Effect>
-        <Button Height="25" Content="Изменить" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,35,0,0" Width="55" FontSize="10" Command="{Binding OnEdit}">
+        <Button Background="#FF9B40" Foreground="White" BorderThickness="0" Height="25" Content="Изменить" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,35,0,0" Width="55" FontSize="10" Command="{Binding OnEdit}">
             <Button.Effect>
                 <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
             </Button.Effect>
         </Button>
-        <Button Click="DeleteClick" Height="25" Content="Удалить" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,65,0,0" Width="55" FontSize="10" Command="{Binding OnDelete}">
+        <Button Background="Red" Foreground="White" BorderThickness="0" Click="DeleteClick" Height="25" Content="Удалить" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,65,0,0" Width="55" FontSize="10" Command="{Binding OnDelete}">
             <Button.Effect>
                 <DropShadowEffect Direction="270" BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
             </Button.Effect>
@@ -26,15 +26,28 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Label Content="Фамилия:" VerticalAlignment="Top" Margin="10,8,10,0"/>
-            <TextBox Text="{Binding Surname}" Height="26" VerticalAlignment="Top" Margin="10,34,10,0" VerticalContentAlignment="Center" IsEnabled="False"/>
+            <Border Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Height="26" VerticalAlignment="Top" Margin="10,34,10,0">
+                <TextBox BorderThickness="0" Background="Transparent" Text="{Binding Surname}" VerticalContentAlignment="Center" IsEnabled="False"/>
+            </Border>
             <Label Content="Имя:" VerticalAlignment="Top" Margin="10,8,10,0" Grid.Column="1"/>
-            <TextBox Text="{Binding Name}" Height="26" VerticalAlignment="Top" Margin="10,34,10,0" VerticalContentAlignment="Center" IsEnabled="False" Grid.Column="1"/>
+            <Border Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Height="26" VerticalAlignment="Top" Margin="10,34,10,0" Grid.Column="1">
+                <TextBox BorderThickness="0" Background="Transparent" Text="{Binding Name}" VerticalContentAlignment="Center" IsEnabled="False" />
+            </Border>
             <Label Content="Отчество:" VerticalAlignment="Top" Margin="10,8,10,0" Grid.Column="2"/>
-            <TextBox Text="{Binding Patronymic}" Height="26" VerticalAlignment="Top" Margin="10,34,10,0" VerticalContentAlignment="Center" IsEnabled="False" Grid.Column="2"/>
+            <Border Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Height="26" VerticalAlignment="Top" Margin="10,34,10,0" Grid.Column="2">
+                <TextBox BorderThickness="0" Background="Transparent" Text="{Binding Patronymic}" VerticalContentAlignment="Center" IsEnabled="False"/>
+                
+            </Border>
             <Label Content="Паспорт:" VerticalAlignment="Top" Margin="10,60,10,0"/>
-            <TextBox Text="{Binding Passport}" Height="26" VerticalAlignment="Top" Margin="10,86,10,0" VerticalContentAlignment="Center" IsEnabled="False"/>
+            <Border Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Height="26" VerticalAlignment="Top" Margin="10,86,10,0">
+                <TextBox BorderThickness="0" Background="Transparent" Text="{Binding Passport}" VerticalContentAlignment="Center" IsEnabled="False"/>
+                
+            </Border>
             <Label Content="Рейс:" VerticalAlignment="Top" Margin="10,60,10,0" Grid.Column="1"/>
-            <TextBox Text="{Binding Id_flight.Id_flight}" Height="26" VerticalAlignment="Top" Margin="10,86,10,0" VerticalContentAlignment="Center" IsEnabled="False" Grid.Column="1"/>
+            <Border Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Height="26" VerticalAlignment="Top" Margin="10,86,10,0" Grid.Column="1">
+                <TextBox BorderThickness="0" Background="Transparent" Text="{Binding Id_flight.Id_flight}" VerticalContentAlignment="Center" IsEnabled="False"/>
+                
+            </Border>
         </Grid>
     </Grid>
 </UserControl>
