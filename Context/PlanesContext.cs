@@ -69,7 +69,7 @@ namespace CourseProject.Context
                     $"WHERE " +
                     $"Id_plane = {this.Id_plane}", out connection);
             }
-            Connection.CloseConnection(connection);
+            Connection.CloseConnection(connection); 
             isNew = false;
             View.Menu.Main.init.frame.Navigate(View.Menu.Main.init.PlanesMain);
             View.Planes.Main.init.ReloadPage();

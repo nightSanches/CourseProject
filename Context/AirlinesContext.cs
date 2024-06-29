@@ -45,7 +45,7 @@ namespace CourseProject.Context
             }
             else
             {
-                SqlDataReader dataAirlines = Connection.Query("SELECT * FROM airlines WHERE Airline_name LIKE '%" + Filter + "%'", out connection);
+                SqlDataReader dataAirlines = Connection.Query("SELECT * FROM airlines WHERE Airline_name LIKE N'%" + Filter + "%'", out connection);
                 while (dataAirlines.Read())
                 {
                     allAirlines.Add(new AirlinesContext()
@@ -71,7 +71,7 @@ namespace CourseProject.Context
                     "Country) " +
                     "OUTPUT Inserted.Id_airline " +
                     $"VALUES (" +
-                    $"'{this.Airline_name}', '{this.Country}')", out connection);
+                    $"N'{this.Airline_name}', N'{this.Country}')", out connection);
                 dataAirlines.Read();
                 this.Id_airline = dataAirlines.GetInt32(0);
             }
@@ -79,8 +79,8 @@ namespace CourseProject.Context
             {
                 Connection.Query("UPDATE [dbo].[airlines] " +
                     "SET " +
-                    $"Airline_name = '{this.Airline_name}', " +
-                    $"Country = '{this.Country}' " +
+                    $"Airline_name = N'{this.Airline_name}', " +
+                    $"Country = N'{this.Country}' " +
                     $"WHERE " +
                     $"Id_airline = {this.Id_airline}", out connection);
             }

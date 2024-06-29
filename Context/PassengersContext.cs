@@ -51,7 +51,7 @@ namespace CourseProject.Context
             }
             else
             {
-                SqlDataReader dataPassengers = Connection.Query("SELECT * FROM passengers WHERE Name LIKE '%" + Filter + "%' OR Surname LIKE '%" + Filter + "%' OR Patronymic LIKE '%" + Filter + "%'", out connection);
+                SqlDataReader dataPassengers = Connection.Query("SELECT * FROM passengers WHERE Name LIKE N'%" + Filter + "%' OR Surname LIKE N'%" + Filter + "%' OR Patronymic LIKE N'%" + Filter + "%'", out connection);
                 while (dataPassengers.Read())
                 {
                     allPassengers.Add(new PassengersContext()
@@ -78,7 +78,7 @@ namespace CourseProject.Context
                     "[dbo].[passengers] (" +
                     "Surname, Name, Patronymic, Passport) " +
                     "OUTPUT Inserted.Id_passenger " +
-                    $"VALUES ('{this.Surname}', '{this.Name}', '{this.Patronymic}', '{this.Passport}')", out connection);
+                    $"VALUES (N'{this.Surname}', N'{this.Name}', N'{this.Patronymic}', N'{this.Passport}')", out connection);
                 dataPassengers.Read();
                 this.Id_passenger = dataPassengers.GetInt32(0);
             }
@@ -86,10 +86,10 @@ namespace CourseProject.Context
             {
                 Connection.Query("UPDATE [dbo].[passengers] " +
                     "SET " +
-                    $"Surname = '{this.Surname}', " +
-                    $"Name = '{this.Name}', " +
-                    $"Patronymic = '{this.Patronymic}', " +
-                    $"Passport = '{this.Passport}'," +
+                    $"Surname = N'{this.Surname}', " +
+                    $"Name = N'{this.Name}', " +
+                    $"Patronymic = N'{this.Patronymic}', " +
+                    $"Passport = N'{this.Passport}'," +
                     $"Id_flight = {this.Id_flight.Id_flight} " +
                     $"WHERE " +
                     $"Id_passenger = {this.Id_passenger}", out connection);

@@ -56,7 +56,7 @@ namespace CourseProject.Context
             }
             else if(Filter1 != "" && Filter2 == "")
             {
-                SqlDataReader dataFlights = Connection.Query("SELECT * FROM flights WHERE Departure LIKE '%" + Filter1 + "%'", out connection);
+                SqlDataReader dataFlights = Connection.Query("SELECT * FROM flights WHERE Departure LIKE N'%" + Filter1 + "%'", out connection);
                 while (dataFlights.Read())
                 {
                     allFlights.Add(new FlightsContext()
@@ -75,7 +75,7 @@ namespace CourseProject.Context
             }
             else if(Filter1 == "" && Filter2 != "")
             {
-                SqlDataReader dataFlights = Connection.Query("SELECT * FROM flights WHERE Destination LIKE '%" + Filter2 + "%'", out connection);
+                SqlDataReader dataFlights = Connection.Query("SELECT * FROM flights WHERE Destination LIKE N'%" + Filter2 + "%'", out connection);
                 while (dataFlights.Read())
                 {
                     allFlights.Add(new FlightsContext()
@@ -94,7 +94,7 @@ namespace CourseProject.Context
             }
             else if(Filter1 != "" && Filter2 !="")
             {
-                SqlDataReader dataFlights = Connection.Query("SELECT * FROM flights WHERE Departure LIKE '%" + Filter1 + "%' AND Destination LIKE '%" + Filter2 + "%'", out connection);
+                SqlDataReader dataFlights = Connection.Query("SELECT * FROM flights WHERE Departure LIKE N'%" + Filter1 + "%' AND Destination LIKE N'%" + Filter2 + "%'", out connection);
                 while (dataFlights.Read())
                 {
                     allFlights.Add(new FlightsContext()
@@ -124,7 +124,7 @@ namespace CourseProject.Context
                     "Departure, Destination, Date_departure, Time_departure, Time_destination) " +
                     "OUTPUT Inserted.Id_flight " +
                     $"VALUES (" +
-                    $"'{this.Departure}', '{this.Destination}', '{this.Date_departure}', '{this.Time_departure}', '{this.Time_destination}')", out connection);
+                    $"N'{this.Departure}', N'{this.Destination}', N'{this.Date_departure}', N'{this.Time_departure}', N'{this.Time_destination}')", out connection);
                 dataFlights.Read();
                 this.Id_flight = dataFlights.GetInt32(0);
             }
@@ -134,11 +134,11 @@ namespace CourseProject.Context
                     "SET " +
                     $"Id_airline = {this.Id_airline.Id_airline}, " +
                     $"Id_plane = {this.Id_plane.Id_plane}, " +
-                    $"Departure = '{this.Departure}', " +
-                    $"Destination = '{this.Destination}', " +
-                    $"Date_departure = '{this.Date_departure}', " +
-                    $"Time_departure = '{this.Time_departure}', " +
-                    $"Time_destination = '{this.Time_destination}' " +
+                    $"Departure = N'{this.Departure}', " +
+                    $"Destination = N'{this.Destination}', " +
+                    $"Date_departure = N'{this.Date_departure}', " +
+                    $"Time_departure = N'{this.Time_departure}', " +
+                    $"Time_destination = N'{this.Time_destination}' " +
                     $"WHERE " +
                     $"Id_flight = {this.Id_flight}", out connection);
             }
